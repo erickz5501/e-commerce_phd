@@ -26,3 +26,13 @@ Route::get('/', HomeComponent::Class);
 Route::get('/shop', ShopComponent::Class);
 Route::get('/cart', CartComponent::Class);
 Route::get('/checkout', CheckoutComponent::Class);
+
+Route::middleware([
+    'auth:sanctum',
+    config('jetstream.auth_session'),
+    'verified'
+])->group(function () {
+    Route::get('/dashboard', function () {
+        return view('dashboard');
+    })->name('dashboard');
+});
