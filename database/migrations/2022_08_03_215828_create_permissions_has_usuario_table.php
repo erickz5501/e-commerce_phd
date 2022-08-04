@@ -15,6 +15,10 @@ class CreatePermissionsHasUsuarioTable extends Migration
     {
         Schema::create('permissions_has_usuario', function (Blueprint $table) {
             $table->id();
+            $table->unsignedInteger('permissions_id');
+            $table->foreign('permissions_id')->references('id')->on('permissions');
+            $table->unsignedInteger('usuario_id');
+            $table->foreign('usuario_id')->references('id')->on('users');
             $table->timestamps();
         });
     }

@@ -15,6 +15,15 @@ class CreateDetalleCarritoTable extends Migration
     {
         Schema::create('detalle_carrito', function (Blueprint $table) {
             $table->id();
+            $table->string('descripcion');
+            $table->integer('cantidad');
+            $table->decimal('precio_unitario',11,2);
+            $table->decimal('descuento',11,2);
+            $table->decimal('sub_total',11,2);
+            $table->unsignedInteger('carrito_compras_id');
+            $table->foreign('carito_compras_id')->references('id')->on('carrito_compras');
+            $table->unsignedInteger('producto_id');
+            $table->foreign('producto_id')->references('id')->on('producto');
             $table->timestamps();
         });
     }

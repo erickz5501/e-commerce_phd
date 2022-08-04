@@ -15,6 +15,16 @@ class CreateProductoTable extends Migration
     {
         Schema::create('producto', function (Blueprint $table) {
             $table->id();
+            $table->string('sku');
+            $table->string('nombre');
+            $table->decimal('precio_compra',11,2);
+            $table->decimal('precio_venta',11,2);
+            $table->decimal('precio_mayorista',11,2);
+            $table->decimal('peso',11,2);
+            $table->string('deripcion');
+            $table->string('imagen');
+            $table->decimal('descuento',11,2);
+            $table->integer('stock');
             $table->timestamps();
         });
     }

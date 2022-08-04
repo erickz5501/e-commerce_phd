@@ -15,6 +15,7 @@ class CreateOpinionesTable extends Migration
     {
         Schema::create('opiniones', function (Blueprint $table) {
             $table->id();
+            $table->string('comentario');
             $table->timestamps();
         });
     }

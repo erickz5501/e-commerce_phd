@@ -15,6 +15,10 @@ class CreateRolesHasUsuarioTable extends Migration
     {
         Schema::create('roles_has_usuario', function (Blueprint $table) {
             $table->id();
+            $table->unsignedInteger('roles_id');
+            $table->foreign('roles_id')->references('id')->on('roles');
+            $table->unsignedInteger('usuario_id');
+            $table->foreign('usuario_id')->references('id')->on('users');
             $table->timestamps();
         });
     }
