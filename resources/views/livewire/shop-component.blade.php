@@ -15,7 +15,7 @@
 
 					<div class="banner-shop">
 						<a href="#" class="banner-link">
-							<figure><img src="{{asset('assets/images/shop-banner.jpg')}}" alt=""</figure>
+							<figure><img src="{{asset('assets/images/shop-banner.jpg')}}" alt=""></figure>
 						</a>
 					</div>
 
@@ -72,8 +72,8 @@
 									</div>
 									<div class="product-info">
 										<a href="#" class="product-name"><span>{{$producto->nombre}}</span></a>
-										<div class="wrap-price"><span class="product-price">{{$producto->precio_venta}}</span></div>
-										<a href="#" class="btn add-to-cart">Add To Cart</a>
+										<div class="wrap-price"><span class="product-price">S/ {{$producto->precio_venta}}</span></div>
+										<a href="#" class="btn add-to-cart" wire:click.prevent="store({{$producto->id}},{{$producto->nombre}}, {{$producto->precio_venta}})" >Añadiar al carro</a>
 									</div>
 								</div>
 							</li>
