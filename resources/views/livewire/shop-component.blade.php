@@ -71,12 +71,12 @@
 										</a>
 									</div>
 									<div class="product-info">
-										<a href="#" class="product-name"><span>{{$producto->nombre}}</span></a>
+										<a href="{{route('product.details', ['slug'=>$producto->slug])}}" class="product-name"><span>{{$producto->nombre}}</span></a>
 										<div class="wrap-price"><span class="product-price">S/ {{$producto->precio_venta}}</span></div>
-										<a href="#" class="btn add-to-cart" wire:click.prevent="store({{$producto->id}},{{$producto->nombre}}, {{$producto->precio_venta}})" >Añadiar al carro</a>
-										<a href="{{route('product.details',['slug'=>$producto->slug])}}" class="product-name"><span>{{$producto->nombre}}</span></a>
-										<div class="wrap-price"><span class="product-price">{{$producto->precio_venta}}</span></div>
-										<a href="#" class="btn add-to-cart">Add To Cart</a>
+										<a href="javascript:void(0)" class="btn add-to-cart" wire:click.prevent="store({{$producto->id}},'{{$producto->nombre}}',{{$producto->precio_venta}})" >Añadir al carro</a>
+										{{-- <a href="{{route('product.details',['slug'=>$producto->slug])}}" class="product-name"><span>{{$producto->nombre}}</span></a>
+										<div class="wrap-price"><span class="product-price">{{$producto->precio_venta}}</span></div> --}}
+										{{-- <a href="#" class="btn add-to-cart">Add To Cart</a> --}}
 									</div>
 								</div>
 							</li>
