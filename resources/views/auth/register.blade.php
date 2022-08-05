@@ -86,11 +86,11 @@
 									</fieldset>
 									<fieldset class="wrap-input">
 										<label for="frm-reg-lname">Name*</label>
-										<input type="text" id="frm-reg-lname" name="reg-lname" placeholder="Last name*">
+										<input type="text" id="frm-reg-lname" name="name" placeholder="Ingrese su nombre" required autofocus autocomplete="name">
 									</fieldset>
 									<fieldset class="wrap-input">
 										<label for="frm-reg-email">Email Address*</label>
-										<input type="email" id="frm-reg-email" name="reg-email" placeholder="Email address">
+										<input type="email" id="frm-reg-email" name="email" placeholder="Email address" :value="email">
 									</fieldset>
 									<fieldset class="wrap-functions ">
 										<label class="remember-field">
@@ -102,11 +102,11 @@
 									</fieldset>
 									<fieldset class="wrap-input item-width-in-half left-item ">
 										<label for="frm-reg-pass">Password *</label>
-										<input type="text" id="frm-reg-pass" name="reg-pass" placeholder="Password">
+										<input type="password" id="frm-reg-pass" name="password" placeholder="Password" required autocomplete="new-password">
 									</fieldset>
 									<fieldset class="wrap-input item-width-in-half ">
 										<label for="frm-reg-cfpass">Confirm Password *</label>
-										<input type="text" id="frm-reg-cfpass" name="reg-cfpass" placeholder="Confirm Password">
+										<input type="password" id="frm-reg-cfpass" name="password_confirmation" placeholder="Confirm Password" required aria-autocomplete="new-password">
 									</fieldset>
 									<input type="submit" class="btn btn-sign" value="Register" name="register">
 								</form>
