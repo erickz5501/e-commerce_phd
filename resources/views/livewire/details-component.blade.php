@@ -37,7 +37,7 @@
                             <div class="short-desc">
                                 {{$productos->short_descripcion}}
                             </div>
-                            <div class="wrap-price"><span class="product-price">S/. {{$productos->precio_venta}}</span></div>
+                            <div class="wrap-price"><span class="product-price">S/{{$productos->precio_venta}} - $250</span></div>
                             <div class="stock-info in-stock">
                                 <p class="availability">Disponibles: <b>{{$productos->stock_estado}}</b></p>
                             </div>
@@ -219,7 +219,7 @@
 										</div>
 										<div class="product-info">
 											<a href="{{route('product.details',['slug'=>$popular_product->slug])}}" title="{{$popular_product->nombre}} class="product-name"><span>{{$popular_product->nombre}}</span></a>
-											<div class="wrap-price"><span class="product-price">S/. {{$popular_product->precio_venta}}</span></div>
+											<div class="wrap-price"><span class="product-price">S/{{$productos->precio_venta}} - $250</span></div>
 										</div>
 									</div>
 								</li>
@@ -252,7 +252,7 @@
 									</div>
 									<div class="product-info">
 										<a href="{{route('product.details',['slug'=>$related_product->slug])}}" class="product-name"><span>{{$related_product->nombre}}</span></a>
-										<div class="wrap-price"><span class="product-price">S/. {{$related_product->precio_venta}}</span></div>
+										<div class="wrap-price"><span class="product-price">S/{{$productos->precio_venta}} - $250</span></div>
 									</div>
 								</div>
                                 @endforeach
