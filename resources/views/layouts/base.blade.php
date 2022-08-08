@@ -60,8 +60,10 @@
                                                         class="fa fa-angle-down" aria-hidden="true"></i></a>
                                                 <ul class="submenu curency">
                                                     <li class="menu-item">
-                                                        <a title="Dashboard"
-                                                            href=" {{ route('admin.dashboard') }} ">Dashboard</a>
+                                                        <a title="Dashboard" href=" {{ route('admin.dashboard') }} ">Dashboard</a>
+                                                    </li>
+                                                    <li class="menu-item">
+                                                        <a title="Categorias" href="{{ route('admin.categories') }}">Categorias</a>
                                                     </li>
                                                     <li class="menu-item">
                                                         <a href="{{ route('logout') }}"
@@ -79,8 +81,7 @@
                                                         class="fa fa-angle-down" aria-hidden="true"></i></a>
                                                 <ul class="submenu curency">
                                                     <li class="menu-item">
-                                                        <a title="Dashboard"
-                                                            href=" {{ route('user.dashboard') }} ">Dashboard</a>
+                                                        <a title="Dashboard" href=" {{ route('user.dashboard') }} ">Dashboard</a>
                                                     </li>
                                                     <li class="menu-item">
                                                         <a href="{{ route('logout') }}"

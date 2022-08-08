@@ -8,7 +8,8 @@ use Illuminate\Validation\ValidationException;
 use Laravel\Fortify\Fortify;
 use Laravel\Fortify\LoginRateLimiter;
 use Illuminate\Support\Facades\Auth;
-use Laravel\Fortify\Actions\RouteServiceProvider;
+// use Laravel\Fortify\Actions\RouteServiceProvider;
+use App\Providers\RouteServiceProvider;
 
 class AttemptToAuthenticate
 {
