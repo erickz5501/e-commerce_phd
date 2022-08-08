@@ -123,25 +123,11 @@
                                                 aria-hidden="true"></i></button>
                                         <div class="wrap-list-cate">
                                             <input type="hidden" name="product-cate" value="0" id="product-cate">
-                                            <a href="#" class="link-control">All Category</a>
+                                            <a href="#" class="link-control">Categorias</a>
                                             <ul class="list-cate">
-                                                <li class="level-0">All Category</li>
-                                                <li class="level-1">-Electronics</li>
-                                                <li class="level-2">Batteries & Chargens</li>
-                                                <li class="level-2">Headphone & Headsets</li>
-                                                <li class="level-2">Mp3 Player & Acessories</li>
-                                                <li class="level-1">-Smartphone & Table</li>
-                                                <li class="level-2">Batteries & Chargens</li>
-                                                <li class="level-2">Mp3 Player & Headphones</li>
-                                                <li class="level-2">Table & Accessories</li>
-                                                <li class="level-1">-Electronics</li>
-                                                <li class="level-2">Batteries & Chargens</li>
-                                                <li class="level-2">Headphone & Headsets</li>
-                                                <li class="level-2">Mp3 Player & Acessories</li>
-                                                <li class="level-1">-Smartphone & Table</li>
-                                                <li class="level-2">Batteries & Chargens</li>
-                                                <li class="level-2">Mp3 Player & Headphones</li>
-                                                <li class="level-2">Table & Accessories</li>
+                                                {{-- @foreach ($categorias as $categoria)
+                                                    <li  href="{{route('product.category', ['slug'=>$categoria->slug])}}" class="level-2">{{$categoria->nombre}}</li>
+                                                @endforeach --}}
                                             </ul>
                                         </div>
                                     </form>
