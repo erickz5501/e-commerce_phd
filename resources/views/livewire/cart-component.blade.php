@@ -31,9 +31,9 @@
                                     <div class="price-field produtc-price"><p class="price">S/ {{$item->model->precio_venta}}</p></div>
                                     <div class="quantity">
                                         <div class="quantity-input">
-                                            <input type="text" name="product-quatity" value="{{$item->quantity}}" data-max="120" pattern="[0-9]*" >
-                                            <a class="btn btn-increase" href="#"></a>
-                                            <a class="btn btn-reduce" href="#"></a>
+                                            <input type="text" name="product-quatity" value="{{$item->qty}}" data-max="120" pattern="[0-9]*" >
+                                            <a class="btn btn-increase" wire:click.prevent="increaseQuantity('{{$item->rowId}}')"></a>
+                                            <a class="btn btn-reduce"  wire:click.prevent="decreaseQuantity('{{$item->rowId}}')"></a>
                                         </div>
                                     </div>
                                     <div class="price-field sub-total"><p class="price">S/ {{$item->subtotal}}</p></div>
