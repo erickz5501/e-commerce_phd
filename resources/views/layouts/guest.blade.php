@@ -1,29 +1,3 @@
-{{-- <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="csrf-token" content="{{ csrf_token() }}">
-
-    <title>{{ config('app.name', 'Laravel') }}</title>
-
-    <!-- Fonts -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
-
-    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
-
-    <!-- Scripts -->
-    <script src="{{ mix('js/app.js') }}" defer></script>
-</head>
-
-<body>
-    <div class="font-sans text-gray-900 antialiased">
-        {{ $slot }}
-    </div>
-</body>
-
-</html> --}}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -68,9 +42,10 @@
                         <div class="topbar-menu left-menu">
                             <ul>
                                 <li class="menu-item">
-                                    <a title="Hotline: (+123) 456 789" href="#"><span
-                                            class="icon label-before fa fa-mobile"></span>Celular: 923 666 379 - 923 666
-                                        379</a>
+                                    <a title="Hotline: (+123) 456 789" href="#">
+                                        <span class="icon label-before fa fa-mobile"></span>
+                                        Celular: 923 666 379 - 923 666 379
+                                    </a>
                                 </li>
                             </ul>
                         </div>
@@ -564,7 +539,7 @@
         <script src="{{ asset('assets/js/jquery-ui-1.12.4.minb8ff.js?ver=1.12.4') }}"></script>
         <script src="{{ asset('assets/js/bootstrap.min.js') }}"></script>
         <script src="{{ asset('assets/js/jquery.flexslider.js') }}"></script>
-        <script src="{{ asset('assets/js/chosen.jquery.min.js') }}"></script>
+        {{-- <script src="{{ asset('assets/js/chosen.jquery.min.js') }}"></script> --}}
         <script src="{{ asset('assets/js/owl.carousel.min.js') }}"></script>
         <script src="{{ asset('assets/js/jquery.countdown.min.js') }}"></script>
         <script src="{{ asset('assets/js/jquery.sticky.js') }}"></script>

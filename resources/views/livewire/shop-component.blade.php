@@ -25,18 +25,16 @@
 						<div class="wrap-right">
 
 							<div class="sort-item orderby ">
-								<select name="orderby" class="use-chosen" >
-									<option value="menu_order" selected="selected">Default sorting</option>
-									<option value="popularity">Sort by popularity</option>
-									<option value="rating">Sort by average rating</option>
-									<option value="date">Sort by newness</option>
-									<option value="price">Sort by price: low to high</option>
-									<option value="price-desc">Sort by price: high to low</option>
+								<select name="orderby" class="use-chosen" wire:model="sorting" >
+									<option value="default" selected="selected">Recomendados</option>
+									<option value="date">Nuevos productos</option>
+									<option value="price">Precio de menor a mayor</option>
+									<option value="price-desc">Precio de mayor a menor</option>
 								</select>
 							</div>
 
 							<div class="sort-item product-per-page">
-								<select name="post-per-page" class="use-chosen" >
+								<select name="post-per-page" class="use-chosen" wire:model="pagesize" >
 									<option value="12" selected="selected">12 per page</option>
 									<option value="16">16 per page</option>
 									<option value="18">18 per page</option>
@@ -100,10 +98,10 @@
 
 				<div class="col-lg-3 col-md-4 col-sm-4 col-xs-12 sitebar">
 					<div class="widget mercado-widget categories-widget">
-						<h2 class="widget-title">All Categories</h2>
+						<h2 class="widget-title">Todas las categorias</h2>
 						<div class="widget-content">
 							<ul class="list-category">
-								<li class="category-item has-child-cate">
+								{{-- <li class="category-item has-child-cate">
 									<a href="#" class="cate-link">Fashion & Accessories</a>
 									<span class="toggle-control">+</span>
 									<ul class="sub-cate">
@@ -135,10 +133,12 @@
 								</li>
 								<li class="category-item">
 									<a href="#" class="cate-link">Kid’s Toys</a>
-								</li>
-								<li class="category-item">
-									<a href="#" class="cate-link">Organics & Spa</a>
-								</li>
+								</li> --}}
+                                @foreach ($categorias as $categoria)
+                                    <li class="category-item">
+                                        <a href="{{route('product.category', ['slug'=>$categoria->slug])}}" class="cate-link">{{$categoria->nombre}}</a>
+                                    </li>
+                                @endforeach
 							</ul>
 						</div>
 					</div><!-- Categories widget-->
