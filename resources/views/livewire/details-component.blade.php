@@ -50,7 +50,7 @@
 								</div>
 							</div>
 							<div class="wrap-butons">
-								<a href="#" class="btn add-to-cart" wire:click.prevent="store({{$productos}}, '{{$productos->nombre}}', {{$productos->precio_venta}})" >Añadir al carro</a>
+								<a href="#" class="btn add-to-cart" wire:click.prevent="store({{$productos->id}}, '{{$productos->nombre}}', {{$productos->precio_venta}})" >Añadir al carro</a>
                                 <div class="wrap-btn">
                                     <a href="#" class="btn btn-compare">Add Compare</a>
                                     <a href="#" class="btn btn-wishlist">Add Wishlist</a>

@@ -37,7 +37,7 @@
                                     </div>
                                     <div class="price-field sub-total"><p class="price">S/ {{$item->subtotal}}</p></div>
                                     <div class="delete">
-                                        <a href="#" wire:click.prevent="destroy('{{$item->rpwId}}')" class="btn btn-delete" title="">
+                                        <a href="#" wire:click.prevent="destroy('{{$item->rowId}}')" class="btn btn-delete" title="">
                                             <span>Eliminar del carrito</span>
                                             <i class="fa fa-times-circle" aria-hidden="true"></i>
                                         </a>
