@@ -1,4 +1,3 @@
-	<!--main area-->
 	<main id="main" class="main-site">
 
 		<div class="container">
@@ -38,7 +37,7 @@
                                     </div>
                                     <div class="price-field sub-total"><p class="price">S/ {{$item->subtotal}}</p></div>
                                     <div class="delete">
-                                        <a href="#" class="btn btn-delete" title="">
+                                        <a href="#" wire:click.prevent="destroy('{{$item->rpwId}}')" class="btn btn-delete" title="">
                                             <span>Eliminar del carrito</span>
                                             <i class="fa fa-times-circle" aria-hidden="true"></i>
                                         </a>
@@ -67,7 +66,7 @@
 						<a class="link-to-shop" href="shop.html">Continue Shopping<i class="fa fa-arrow-circle-right" aria-hidden="true"></i></a>
 					</div>
 					<div class="update-clear">
-						<a class="btn btn-clear" href="#" wire:click.prevent="" >Clear Shopping Cart</a>
+						<a class="btn btn-clear" href="#" wire:click.prevent="destroyAll()" >Clear Shopping Cart</a>
 						<a class="btn btn-update" href="#">Update Shopping Cart</a>
 					</div>
 				</div>
@@ -226,4 +225,3 @@
 		</div><!--end container-->
 
 	</main>
-	<!--main area-->
