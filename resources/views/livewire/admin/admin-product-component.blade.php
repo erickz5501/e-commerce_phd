@@ -12,14 +12,7 @@
             <div class="col-md-12">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        <div class="row">
-                            <div class="col-md-6">
-                                Categorias
-                            </div>
-                            <div class="col-md-6">
-                                <a href="{{ route('admin.addcategories') }}" class="btn btn-success pull-right">Añanir</a>
-                            </div>
-                        </div>
+                        Productos
                     </div>
                     <div class="panel-body">
                         <table class="table table-striped table-bordered">
@@ -32,17 +25,17 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($categorias as $categoria)
+                                @foreach ($productos as $producto)
                                     <tr>
-                                        <td>{{$categoria->id}}</td>
-                                        <td>{{$categoria->nombre}}</td>
-                                        <td>{{$categoria->slug}}</td>
+                                        <td>{{$producto->id}}</td>
+                                        <td>{{$producto->nombre}}</td>
+                                        <td>{{$producto->slug}}</td>
                                         <td></td>
                                     </tr>
                                 @endforeach
                             </tbody>
                         </table>
-                        {{$categorias->links()}}
+                        {{$productos->links()}}
                     </div>
                 </div>
             </div>
