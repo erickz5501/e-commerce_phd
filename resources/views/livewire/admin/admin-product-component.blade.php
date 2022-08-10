@@ -12,11 +12,13 @@
             <div class="col-md-12">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        <div class="col-md-6">
-                            Productos
-                        </div>
-                        <div class="col-md-6">
-                            <a href="{{route('admin.addproduct')}}" class="btn btn-success pull-right">Nuevo Producto</a>
+                        <div class="row">
+                            <div class="col-md-6">
+                                Productos
+                            </div>
+                            <div class="col-md-6">
+                                <a href="{{route('admin.addproduct')}}" class="btn btn-success pull-right">Nuevo Producto</a>
+                            </div>
                         </div>
                     </div>
 
