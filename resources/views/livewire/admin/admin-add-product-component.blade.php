@@ -69,12 +69,19 @@
                                 <select class="form-control">
                                     <option value="enstock">En-Stock</option>
                                     <option value="sinstock">Sin-stock</option>
+                                </select>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-md-4 control-label">Imagen del producto</label>
+                            <label class="col-md-4 control-label">Cantidad</label>
                             <div class="col-md-4">
-                                <input type="file" class="input-file form-control">
+                                <input type="text" placeholder="Ingrese la cantidad de productos" class="form-control input-md" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-4 control-label">Imagen</label>
+                            <div class="col-md-4">
+                                <input type="file" class="input-file" />
                             </div>
                         </div>
                         <div class="form-group">
@@ -87,6 +94,12 @@
                                     @endforeach
                                 </select>
                             </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-4 control-label"></label>
+                                <div class="col-md-4">
+                                    <button type="submit" class="btn btn-primary">Guardar</button>
+                                </div>
                         </div>
                     </form>
                 </div>
