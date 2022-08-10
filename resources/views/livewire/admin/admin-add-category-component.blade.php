@@ -6,7 +6,7 @@
                     <div class="panel-heading">
                         <div class="row">
                             <div class="col-md-6">
-                                Editar categoria
+                                Añadir nueva categoria
                             </div>
                             <div class="col-md-6">
                                 <a href="{{route('admin.categories')}}" class="btn btn-success pull-right">Todas las categorias</a>
@@ -20,7 +20,7 @@
                             {{Session::get('message')}}
                         </div>
                     @endif
-                    <form class="form-horizontal" wire:submit.prevent="updateCategory" >
+                    <form class="form-horizontal" wire:submit.prevent="storeCategory" >
                         <div class="form-group">
                             <label for="" class="col-md-4 control-label">Nombre categoria</label>
                             <div class="col-md-4">
@@ -36,7 +36,7 @@
                         <div class="form-group">
                             <label for="" class="col-md-4 control-label"></label>
                             <div class="col-md-4">
-                                <button type="submit" class="btn btn-primary" >Actualizar</button>
+                                <button type="submit" class="btn btn-primary" >Agregar</button>
                             </div>
                         </div>
                     </form>

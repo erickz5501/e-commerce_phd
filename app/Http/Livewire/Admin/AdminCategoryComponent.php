@@ -11,6 +11,12 @@ class AdminCategoryComponent extends Component
 
     use WithPagination;
 
+    public function deleteCategory($id){
+        $category = Categoria::find($id);
+        $category->delete();
+        session('message', 'Categria elminada correctamente');
+    }
+
     public function mount(){
 
     }
