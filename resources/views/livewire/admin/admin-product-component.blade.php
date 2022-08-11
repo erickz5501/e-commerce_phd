@@ -32,6 +32,7 @@
                                     <th>Stock</th>
                                     <th>Precio</th>
                                     <th>Categoria</th>
+                                    <th>Opciones</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -45,6 +46,9 @@
                                             </td>
                                         <td>S/{{$producto->precio_venta}}</td>
                                         <td>{{$producto->category->nombre}}</td>
+                                        <td>
+                                            <a href="{{route('admin.editproduct',['product_slug'=>$producto->slug])}}"><i class="fa fa-edit fa-2x text-info"></i></a>
+                                        </td>
                                     </tr>
                                 @endforeach
                             </tbody>
