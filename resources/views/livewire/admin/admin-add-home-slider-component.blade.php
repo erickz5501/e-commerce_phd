@@ -6,7 +6,7 @@
                     <div class="panel-heading">
                         <div class="row">
                             <div class="col-md-6">
-                                Añadir la categoria
+                                Añadir Slider
                             </div>
                             <div class="col-md-6">
                                 <a href="{{ route('admin.homeslider') }}" class="btn btn-success pull-right">Todos los slides</a>
@@ -14,41 +14,49 @@
                         </div>
                     </div>
                     <div class="panel-body">
-                        <form action="" class="form-horizontal" >
+                        @if (Session::has('message'))
+                            <div class="alert alert-success" role="alert">
+                                {{Session::get('message')}}
+                            </div>
+                        @endif
+                        <form action="" class="form-horizontal" wire:submit.prevent="addSlide" >
                             <div class="form-group">
                                 <label for="" class="col-md-4 control-label">Titulo</label>
                                 <div class="col-md-4">
-                                    <input type="text" placeholder="Titulo" class="form-control input-md"/>
+                                    <input type="text" placeholder="Titulo" class="form-control input-md" wire:model="title" />
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label for="" class="col-md-4 control-label">Sub titulo</label>
                                 <div class="col-md-4">
-                                    <input type="text" placeholder="Sub titulo" class="form-control input-md"/>
+                                    <input type="text" placeholder="Sub titulo" class="form-control input-md" wire:model="subtitle" />
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label for="" class="col-md-4 control-label">Precio</label>
                                 <div class="col-md-4">
-                                    <input type="number" placeholder="Precio" class="form-control input-md"/>
+                                    <input type="number" placeholder="Precio" class="form-control input-md" wire:model="price"/>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label for="" class="col-md-4 control-label">Link</label>
                                 <div class="col-md-4">
-                                    <input type="number" placeholder="Precio" class="form-control input-md"/>
+                                    <input type="text" placeholder="Precio" class="form-control input-md" wire:model="link" />
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label for="" class="col-md-4 control-label">Imagen</label>
                                 <div class="col-md-4">
-                                    <input type="file" class="input-file"/>
+                                    <input type="file" class="input-file" wire:model="image" />
+                                    @if ($image)
+                                        <img src="{{$image->temporaryurl()}}" width="120"/>
+                                    @endif
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label for="" class="col-md-4 control-label">Estado</label>
                                 <div class="col-md-4">
-                                    <select class="form-control">
+                                    <select class="form-control" wire:model="status" >
                                         <option value="0">Inactivo</option>
                                         <option value="1">Activo</option>
                                     </select>
