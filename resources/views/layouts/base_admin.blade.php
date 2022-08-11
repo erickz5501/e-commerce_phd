@@ -159,7 +159,7 @@
                             <div class="container">
                                 <ul class="nav primary clone-main-menu" id="mercado_main" data-menuname="Main menu">
                                     <li class="menu-item home-icon">
-                                        <a href="/" class="link-term mercado-item-title"><i class="fa fa-home" aria-hidden="true"></i></a>
+                                        <a href="{{ route('admin.products') }}" class="link-term mercado-item-title"><i class="fa fa-home" aria-hidden="true"></i></a>
                                     </li>
                                     <li class="menu-item">
                                         <a href=" {{ route('admin.dashboard') }} " class="link-term mercado-item-title">Dashboard</a>
@@ -169,6 +169,9 @@
                                     </li>
                                     <li class="menu-item">
                                         <a href="{{ route('admin.products') }}" class="link-term mercado-item-title">Productos</a>
+                                    </li>
+                                    <li class="menu-item">
+                                        <a href="{{ route('admin.homeslider') }}" class="link-term mercado-item-title">Manage Home Slider</a>
                                     </li>
                                     <li class="menu-item">
                                         <a href="/checkout" class="link-term mercado-item-title">Checkout</a>
