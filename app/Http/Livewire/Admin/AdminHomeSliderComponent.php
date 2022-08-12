@@ -7,6 +7,13 @@ use Livewire\Component;
 
 class AdminHomeSliderComponent extends Component
 {
+
+    public function deleteSlide($slider_id){
+        $slider = HomeSlider::find($slider_id);
+        $slider.delete();
+        session()->flash('message', 'Slider eliminado satisfactoriamente.');
+    }
+
     public function render()
     {
         $sliders = HomeSlider::all();
