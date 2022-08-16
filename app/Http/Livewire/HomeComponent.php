@@ -20,8 +20,9 @@ class HomeComponent extends Component
         $cats = explode(',', $category->sel_categories);
         $categories = Categoria::whereIn('id', $cats)->get();
         $no_of_products = $category->no_of_products;
-        //var_dump($sliders);
-        return view('livewire.home-component', ['categorias'=>$categorias, 'sliders'=>$sliders, 'lproducts'=>$lproducts, 'categories'=>$categories, 'no_of_products'=>$no_of_products])->layout('layouts.base');
+
+        $sproducts = Producto::where('precio_venta','>', 0)->inRandomOrder()->get()->take(8);
+        return view('livewire.home-component', ['categorias'=>$categorias, 'sliders'=>$sliders, 'lproducts'=>$lproducts, 'categories'=>$categories, 'no_of_products'=>$no_of_products, 'sproducts'=>$sproducts])->layout('layouts.base');
 
     }
 }

@@ -31,6 +31,7 @@
                                     <th>Nombre</th>
                                     <th>Stock</th>
                                     <th>Precio</th>
+                                    <th>Precio descuento</th>
                                     <th>Categoria</th>
                                     <th>Opciones</th>
                                 </tr>
@@ -45,6 +46,7 @@
                                             <span class="label {{$producto->stock_estado == 'enstock' ? 'label-success' : 'label-danger'}} text-uppercase">{{$producto->stock_estado}}</span>
                                             </td>
                                         <td>S/{{$producto->precio_venta}}</td>
+                                        <td>S/{{$producto->precio_descuento}}</td>
                                         <td>{{$producto->category->nombre}}</td>
                                         <td>
                                             <a href="{{route('admin.editproduct',['product_slug'=>$producto->slug])}}"><i class="fa fa-edit fa-2x text-info"></i></a>
