@@ -23,6 +23,11 @@
                     </div>
 
                     <div class="panel-body">
+                        @if (Session::has('message'))
+                        <div class="alert alert-success" role="alert">
+                            {{ Session::get('message')}}
+                        </div>
+                    @endif
                         <table class="table table-striped table-bordered">
                             <thead>
                                 <tr>
@@ -50,8 +55,11 @@
                                         <td>{{$producto->category->nombre}}</td>
                                         <td>
                                             <a href="{{route('admin.editproduct',['product_slug'=>$producto->slug])}}"><i class="fa fa-edit fa-2x text-info"></i></a>
+
+                                            <a href="javascript:void(0)" onclick="Confirm('{{$producto->id}}')" style="margin-left: 10px;" ><i class="fa fa-times fa-2x text-danger"></i>
                                         </td>
                                     </tr>
+
                                 @endforeach
                             </tbody>
                         </table>
@@ -62,3 +70,48 @@
         </div>
     </div>
 </div>
+
+@push('scripts')
+<script>
+    function Confirm(id)
+    {
+        const swalWithBootstrapButtons = Swal.mixin({
+  customClass: {
+    confirmButton: 'btn btn-success',
+    cancelButton: 'btn btn-danger'
+  },
+  buttonsStyling: false
+})
+
+swalWithBootstrapButtons.fire({
+  title: 'Estas seguro de Eliminar?',
+  text: "No podrás revertir esto!",
+  icon: 'warning',
+  showCancelButton: true,
+  confirmButtonText: 'Eliminar',
+  cancelButtonText: 'Cancelar',
+  reverseButtons: true
+}).then((result) => {
+  if (result.isConfirmed) {
+    window.livewire.emit('deleteRow', id)
+    swalWithBootstrapButtons.fire(
+      'Eliminado!',
+      'Registro eliminado',
+      'success'
+    )
+  } else if (
+    /* Read more about handling dismissals below */
+    result.dismiss === Swal.DismissReason.cancel
+  ) {
+    swalWithBootstrapButtons.fire(
+      'Cancelado',
+      'Tu registro esta a salvo :)',
+      'error'
+    )
+  }
+})
+    }
+
+
+</script>
+@endpush
