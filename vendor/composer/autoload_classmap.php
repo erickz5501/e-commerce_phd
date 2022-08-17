@@ -57,6 +57,7 @@ return array(
     'App\\Models\\HomeSlider' => $baseDir . '/app/Models/HomeSlider.php',
     'App\\Models\\Membership' => $baseDir . '/app/Models/Membership.php',
     'App\\Models\\Producto' => $baseDir . '/app/Models/Producto.php',
+    'App\\Models\\Sale' => $baseDir . '/app/Models/Sale.php',
     'App\\Models\\Team' => $baseDir . '/app/Models/Team.php',
     'App\\Models\\TeamInvitation' => $baseDir . '/app/Models/TeamInvitation.php',
     'App\\Models\\User' => $baseDir . '/app/Models/User.php',
