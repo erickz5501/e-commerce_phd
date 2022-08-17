@@ -56,7 +56,16 @@
                             <div class="product-info">
                                 <a href="#" class="product-name"><span>{{$sproduct->nombre}}</span></a>
                                 <div class="wrap-price">
-                                    <span class="product-price">S/ {{$sproduct->precio_venta}}</span>
+                                    <ins>
+                                        <p class="product-price" >
+                                            S/ {{$sproduct->precio_descuento}}
+                                        </p>
+                                    </ins>
+                                    <del>
+                                        <p class="product-price" >
+                                            S/ {{$sproduct->precio_venta}}
+                                        </p>
+                                    </del>
                                 </div>
                             </div>
                         </div>

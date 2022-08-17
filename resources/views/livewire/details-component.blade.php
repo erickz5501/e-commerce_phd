@@ -1,5 +1,15 @@
 	<main id="main" class="main-site">
 
+        <style>
+             .regprice{
+                font-weight: 300;
+                font-size: 13px !important;
+                color: #aaaaaa !important;
+                text-decoration: line-through;
+                padding-left: 10px;
+             }
+        </style>
+
 		<div class="container">
 
 			<div class="wrap-breadcrumb">
@@ -36,7 +46,16 @@
                             <div class="short-desc">
                                 {{$productos->short_descripcion}}
                             </div>
-                            <div class="wrap-price"><span class="product-price">S/{{$productos->precio_venta}} - $250</span></div>
+                            @if ($productos->precio_descuento > 0)
+                                <div class="wrap-price">
+                                    <span class="product-price">S/{{$productos->precio_descuento}}</span>
+                                    <del>
+                                        <span class="product-price regprice">S/{{$productos->precio_venta}}</span>
+                                    </del>
+                                </div>
+                            @else
+                                <div class="wrap-price"><span class="product-price">S/{{$productos->precio_venta}}</span></div>
+                            @endif
                             <div class="stock-info in-stock">
                                 <p class="availability">Disponibles: <b>{{$productos->stock_estado}}</b></p>
                             </div>
