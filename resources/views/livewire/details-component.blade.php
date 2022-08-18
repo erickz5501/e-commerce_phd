@@ -46,7 +46,7 @@
                             <div class="short-desc">
                                 {{$productos->short_descripcion}}
                             </div>
-                            @if ($productos->precio_descuento > 0)
+                            @if ($productos->precio_descuento > 0 && $sale->status == 1 && $sale->sale_date > Carbon\Carbon::now())
                                 <div class="wrap-price">
                                     <span class="product-price">S/{{$productos->precio_descuento}}</span>
                                     <del>
@@ -69,7 +69,12 @@
 								</div>
 							</div>
 							<div class="wrap-butons">
-								<a href="#" class="btn add-to-cart" wire:click.prevent="store({{$productos->id}}, '{{$productos->nombre}}', {{$productos->precio_venta}})" >Añadir al carro</a>
+                                @if ($productos->precio_descuento > 0 && $sale->status == 1 && $sale->sale_date > Carbon\Carbon::now())
+                                <a href="#" class="btn add-to-cart" wire:click.prevent="store({{$productos->id}}, '{{$productos->nombre}}', {{$productos->precio_descuento}})" >Añadir al carro</a>
+
+                                @else
+								    <a href="#" class="btn add-to-cart" wire:click.prevent="store({{$productos->id}}, '{{$productos->nombre}}', {{$productos->precio_venta}})" >Añadir al carro</a>
+                                @endif
                                 <div class="wrap-btn">
                                     <a href="#" class="btn btn-compare">Add Compare</a>
                                     <a href="#" class="btn btn-wishlist">Add Wishlist</a>

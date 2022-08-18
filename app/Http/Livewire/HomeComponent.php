@@ -7,6 +7,7 @@ use App\Models\Categoria;
 use App\Models\Producto;
 use App\Models\HomeSlider;
 use App\Models\HomeCategory;
+use App\Models\Sale;
 
 class HomeComponent extends Component
 {
@@ -23,7 +24,8 @@ class HomeComponent extends Component
 
         $sproducts = Producto::where('precio_venta','>', 0)->inRandomOrder()->get()->take(8);
 
-        return view('livewire.home-component', ['categorias'=>$categorias, 'sliders'=>$sliders, 'lproducts'=>$lproducts, 'categories'=>$categories, 'no_of_products'=>$no_of_products, 'sproducts'=>$sproducts])->layout('layouts.base');
+        $sale = Sale::find(1);
+        return view('livewire.home-component', ['categorias'=>$categorias, 'sliders'=>$sliders, 'lproducts'=>$lproducts, 'categories'=>$categories, 'no_of_products'=>$no_of_products, 'sproducts'=>$sproducts, 'sale'=>$sale])->layout('layouts.base');
 
     }
 }
