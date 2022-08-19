@@ -23,6 +23,7 @@ class AdminEditCategoryComponent extends Component
 
     }
 
+<<<<<<< HEAD
     public function denerateSlug(){
         $this->slug = Str::slug($this->nombre);
     }
@@ -33,6 +34,10 @@ class AdminEditCategoryComponent extends Component
             'slug' => 'required|unique:categorias'
         ]);
 
+=======
+    public function generateSlug(){
+        $this->slug = Str::slug($this->name);
+>>>>>>> 98e20c8fc1a667e1bd7325c03c111b5317a26336
     }
 
     public function updateCategory(){

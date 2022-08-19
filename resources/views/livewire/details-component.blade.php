@@ -44,7 +44,7 @@
                             </div>
                             <h2 class="product-name">{{$productos->nombre}}</h2>
                             <div class="short-desc">
-                                {{$productos->short_descripcion}}
+                                {!!$productos->short_descripcion!!}
                             </div>
                             @if ($productos->precio_descuento > 0 && $sale->status == 1 && $sale->sale_date > Carbon\Carbon::now())
                                 <div class="wrap-price">
@@ -89,7 +89,7 @@
 							</div>
 							<div class="tab-contents">
 								<div class="tab-content-item active" id="description">
-									{{$productos->descripcion}}
+									{!!$productos->descripcion!!}
 								</div>
 								<div class="tab-content-item " id="add_infomation">
 									<table class="shop_attributes">
