@@ -9,16 +9,30 @@ use Illuminate\Support\Str;
 class AdminAddCategoryComponent extends Component
 {
 
-    public $name;
+    public $nombre;
     public $slug;
 
     public function generateSlug(){
-        $this->slug = Str::slug($this->name);
+        $this->slug = Str::slug($this->nombre);
+    }
+
+    public function updated($fields)
+    {
+        $this->validateOnly($fields,[
+            'nombre' => 'required',
+            'slug' => 'required|unique:categorias'
+        ]);
+
     }
 
     public function storeCategory(){
+        $this->validate([
+            'nombre' => 'required',
+            'slug' => 'required|unique:categorias'
+        ]);
+
         $category = new Categoria();
-        $category->nombre = $this->name;
+        $category->nombre = $this->nombre;
         $category->slug = $this->slug;
         $category->save();
         session()->flash('message', 'Categoria creada satisfactoriamente');

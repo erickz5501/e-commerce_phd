@@ -11,25 +11,37 @@ class AdminEditCategoryComponent extends Component
 
     public $category_slug;
     public $category_id;
-    public $name;
+    public $nombre;
     public $slug;
 
     public function mount($category_slug){
         $this->category_slug = $category_slug;
         $category = Categoria::where('slug', $category_slug)->first();
         $this->category_id = $category->id;
-        $this->name = $category->nombre;
+        $this->nombre = $category->nombre;
         $this->slug = $category->slug;
 
     }
 
     public function denerateSlug(){
-        $this->slug = Str::slug($this->name);
+        $this->slug = Str::slug($this->nombre);
+    }
+    public function updated($fields)
+    {
+        $this->validateOnly($fields,[
+            'nombre' => 'required',
+            'slug' => 'required|unique:categorias'
+        ]);
+
     }
 
     public function updateCategory(){
+        $this->validate([
+            'nombre' => 'required',
+            'slug' => 'required|unique:categorias'
+        ]);
         $category = Categoria::find($this->category_id);
-        $category->name = $this->name;
+        $category->nombre = $this->nombre;
         $category->slug = $this->slug;
         $category->save();
         session()->flash('message', 'Categoria actualizada correctamente');

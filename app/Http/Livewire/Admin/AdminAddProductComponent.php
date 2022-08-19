@@ -35,9 +35,40 @@ public function generateSlug()
 {
     $this->slug = Str::slug($this->nombre,'-');
 }
+public function updated($fields)
+{
+    $this->validateOnly($fields,[
+        'nombre'=>'required',
+        'slug'=>'required|unique:productos',
+        'short_descripcion'=>'required',
+        'descripcion'=>'required',
+        'precio_venta'=>'required|numeric',
+        'precio_descuento'=>'numeric',
+        'SKU'=>'required',
+        'stock_estado'=>'required',
+        'cantidad'=>'required|numeric',
+        'imagen'=>'required|mimes:jpeg,png',
+        'categoria_id'=>'required'
+    ]);
+
+}
 
 public function addProduct()
 {
+    $this->validate([
+        'nombre'=>'required',
+        'slug'=>'required|unique:productos',
+        'short_descripcion'=>'required',
+        'descripcion'=>'required',
+        'precio_venta'=>'required|numeric',
+        'precio_descuento'=>'numeric',
+        'SKU'=>'required',
+        'stock_estado'=>'required',
+        'cantidad'=>'required|numeric',
+        'imagen'=>'required|mimes:jpeg,png',
+        'categoria_id'=>'required'
+    ]);
+
     $product = new Producto();
     $product ->nombre = $this->nombre;
     $product ->slug = $this->slug;

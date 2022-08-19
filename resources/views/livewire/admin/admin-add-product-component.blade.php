@@ -25,42 +25,50 @@
                             <label for="" class="col-md-4 control-label">Nombre del Producto</label>
                             <div class="col-md-4">
                                 <input type="text" placeholder="Ingrese nombre del Producto" class="form-control input-md" wire:model="nombre" wire:keyup="generateSlug">
+                                @error('nombre') <p class="text-danger">{{$message}}</p>@enderror
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-md-4 control-label">Slug del producto</label>
                             <div class="col-md-4">
                                 <input type="text" placeholder="Ingrese el Slug" class="form-control input-md" wire:model="slug">
+                                @error('slug') <p class="text-danger">{{$message}}</p>@enderror
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-md-4 control-label">Pequeña descripción</label>
                             <div class="col-md-4">
                                 <textarea class="form-control" wire:model="short_descripcion" placeholder="Ingresar una pequeña descripción"></textarea>
+                                @error('short_descripcion') <p class="text-danger">{{$message}}</p>@enderror
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-md-4 control-label">Descripción</label>
                             <div class="col-md-4">
                                 <textarea class="form-control" wire:model="descripcion" placeholder="Ingresar la descripción del producto"></textarea>
+                                @error('descripcion') <p class="text-danger">{{$message}}</p>@enderror
+
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-md-4 control-label">Precio de venta</label>
                             <div class="col-md-4">
                                 <input type="text" placeholder="Ingrese el precio de venta" class="form-control input-md" wire:model="precio_venta">
+                                @error('precio_venta') <p class="text-danger">{{$message}}</p>@enderror
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-md-4 control-label">Precio de Mayorista</label>
                             <div class="col-md-4">
                                 <input type="text" placeholder="Ingrese el precio para mayoristas" wire:model="precio_descuento" class="form-control input-md">
+                                @error('precio_descuento') <p class="text-danger">{{$message}}</p>@enderror
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-md-4 control-label">SKU</label>
                             <div class="col-md-4">
                                 <input type="text" placeholder="Ingrese el SKU" wire:model="SKU" class="form-control input-md">
+                                @error('SKU') <p class="text-danger">{{$message}}</p>@enderror
                             </div>
                         </div>
                         <div class="form-group">
@@ -70,12 +78,15 @@
                                     <option value="enstock">En-Stock</option>
                                     <option value="sinstock">Sin-stock</option>
                                 </select>
+                                @error('stock_estado') <p class="text-danger">{{$message}}</p>@enderror
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-md-4 control-label">Cantidad</label>
                             <div class="col-md-4">
-                                <input type="text" placeholder="Ingrese la cantidad de productos" wire:model="cantidad" class="form-control input-md" />
+                                <input type="number" placeholder="Ingrese la cantidad de productos" wire:model="cantidad" class="form-control input-md" />
+                                @error('cantidad') <p class="text-danger">{{$message}}</p>@enderror
+
                             </div>
                         </div>
                         <div class="form-group">
@@ -85,6 +96,8 @@
                                 @if ($imagen)
                                     <img src="{{$imagen->temporaryUrl()}}" width="120">
                                 @endif
+                                @error('imagen') <p class="text-danger">{{$message}}</p>@enderror
+
                             </div>
                         </div>
                         <div class="form-group">
@@ -96,6 +109,7 @@
                                         <option value="{{$categoria->id}}">{{$categoria->nombre}}</option>
                                     @endforeach
                                 </select>
+                                @error('categoria_id') <p class="text-danger">{{$message}}</p>@enderror
                             </div>
                             </div>
                             <div class="form-group">

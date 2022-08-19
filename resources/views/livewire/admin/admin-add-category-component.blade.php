@@ -24,13 +24,15 @@
                         <div class="form-group">
                             <label for="" class="col-md-4 control-label">Nombre categoria</label>
                             <div class="col-md-4">
-                                 <input type="text" class="form-control" placeholder="Nombre de categoria" wire:model="name" wire:keyup="generateSlug" >
+                                <input type="text" class="form-control" placeholder="Nombre de categoria" wire:model="nombre" wire:keyup="generateSlug" >
+                                @error('nombre') <p class="text-danger">{{$message}}</p>@enderror
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="" class="col-md-4 control-label">Nombre SLUG</label>
                             <div class="col-md-4">
-                                 <input type="text" class="form-control" placeholder="Nombre de slug" wire:model="slug" >
+                                <input type="text" class="form-control" placeholder="Nombre de slug" wire:model="slug" >
+                                @error('slug') <p class="text-danger">{{$message}}</p>@enderror
                             </div>
                         </div>
                         <div class="form-group">
