@@ -18,6 +18,7 @@ class AdminEditProductComponent extends Component
     public $descripcion;
     public $precio_venta;
     public $precio_descuento;
+    public $precio_mayorista;
     public $SKU;
     public $stock_estado;
     public $cantidad;
@@ -91,6 +92,7 @@ class AdminEditProductComponent extends Component
         $product->descripcion = $this->descripcion;
         $product->precio_venta = $this->precio_venta;
         $product->precio_descuento = $this->precio_descuento;
+        $product->precio_mayorista = $this->precio_mayorista;
         $product->SKU = $this->SKU;
         $product->stock_estado = $this->stock_estado;
         $product->cantidad = $this->cantidad;

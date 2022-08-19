@@ -21,6 +21,7 @@ class CreateProductosTable extends Migration
             $table->text('descripcion');
             $table->decimal('precio_venta');
             $table->decimal('precio_descuento')->nullable();
+            $table->decimal('precio_mayorista')->nullable();
             $table->string('SKU');
             $table->enum('stock_estado', ['enstock','sinstock']);
             $table->boolean('destacado')->default(false);

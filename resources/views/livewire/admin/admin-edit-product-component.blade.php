@@ -10,6 +10,7 @@
                             </div>
                             <div class="col-md-6">
                                 <a href="{{route('admin.products')}}" class="btn btn-success pull-right">Todas las productos</a>
+                                {{-- <a onclick="cargar_datos()" class="btn btn-success pull-right">CArgar datos</a> --}}
                             </div>
                         </div>
                     </div>
@@ -40,7 +41,7 @@
                         <div class="form-group">
                             <label class="col-md-4 control-label">Pequeña descripción</label>
                             <div class="col-md-4">
-                                <textarea class="form-control" wire:model="short_descripcion" placeholder="Ingresar una pequeña descripción"></textarea>
+                                <textarea class="form-control" name="short_descripcion" id="short_descripcion" wire:model="short_descripcion" placeholder="Ingresar una pequeña descripción"></textarea>
                                 @error('short_descripcion') <p class="text-danger">{{$message}}</p>@enderror
 
                             </div>
@@ -48,7 +49,7 @@
                         <div class="form-group">
                             <label class="col-md-4 control-label">Descripción</label>
                             <div class="col-md-4">
-                                <textarea class="form-control" wire:model="descripcion" placeholder="Ingresar la descripción del producto"></textarea>
+                                <textarea class="form-control" name="descripcion" id="descripcion" wire:model="descripcion" placeholder="Ingresar la descripción del producto"></textarea>
                                 @error('descripcion') <p class="text-danger">{{$message}}</p>@enderror
 
                             </div>
@@ -135,3 +136,21 @@
         </div>
     </div>
 </div>
+
+@push('scripts')
+    <script>
+
+        // window.onload=function(){
+        //     cargar_datos();
+        // }
+
+        // function cargar_datos(){
+        //     var sd_data = $('#short_descripcion').val();
+        //     $('#short_descripcion').summernote('code', sd_data);
+
+        //     var d_data = $('#descripcion').val();
+        //     $('#descripcion').summernote('code', d_data);
+        // }
+
+    </script>
+@endpush

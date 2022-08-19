@@ -38,14 +38,14 @@
                         <div class="form-group">
                             <label class="col-md-4 control-label">Pequeña descripción</label>
                             <div class="col-md-4">
-                                <textarea class="form-control" wire:model="short_descripcion" placeholder="Ingresar una pequeña descripción"></textarea>
+                                <textarea class="form-control" name="short_descripcion" id="short_descripcion" wire:model="short_descripcion" placeholder="Ingresar una pequeña descripción"></textarea>
                                 @error('short_descripcion') <p class="text-danger">{{$message}}</p>@enderror
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-md-4 control-label">Descripción</label>
                             <div class="col-md-4">
-                                <textarea class="form-control" wire:model="descripcion" placeholder="Ingresar la descripción del producto"></textarea>
+                                <textarea class="form-control" name="descripcion" id="descripcion" wire:model="descripcion" placeholder="Ingresar la descripción del producto"></textarea>
                                 @error('descripcion') <p class="text-danger">{{$message}}</p>@enderror
 
                             </div>
@@ -124,3 +124,40 @@
         </div>
     </div>
 </div>
+
+@push('scripts')
+<script>
+    // $(document).ready(function() {
+    //         $('#short_descripcion').summernote({
+    //             placeholder: 'Ingresar una pequeña descripción.',
+    //             tabsize: 2,
+    //             height: 180,
+    //             toolbar: [
+    //                 ['style', ['style']],
+    //                 ['font', ['bold', 'underline', 'clear']],
+    //                 ['color', ['color']],
+    //                 ['para', ['ul', 'ol', 'paragraph']],
+    //                 ['table', ['table']],
+    //                 ['insert', ['link', 'picture', 'video']],
+    //                 ['view', ['fullscreen', 'codeview', 'help']]
+    //             ]
+    //         });
+    //     });
+    //     $(document).ready(function() {
+    //         $('#descripcion').summernote({
+    //             placeholder: 'Ingresar la descripción del producto.',
+    //             tabsize: 2,
+    //             height: 180,
+    //             toolbar: [
+    //                 ['style', ['style']],
+    //                 ['font', ['bold', 'underline', 'clear']],
+    //                 ['color', ['color']],
+    //                 ['para', ['ul', 'ol', 'paragraph']],
+    //                 ['table', ['table']],
+    //                 ['insert', ['link', 'picture', 'video']],
+    //                 ['view', ['fullscreen', 'codeview', 'help']]
+    //             ]
+    //         });
+    //     });
+</script>
+@endpush
