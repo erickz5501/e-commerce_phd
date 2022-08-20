@@ -37,6 +37,7 @@
                                     <th>Stock</th>
                                     <th>Precio</th>
                                     <th>Precio descuento</th>
+                                    <th>Precio mayorista</th>
                                     <th>Categoria</th>
                                     <th>Opciones</th>
                                 </tr>
@@ -52,6 +53,7 @@
                                             </td>
                                         <td>S/{{$producto->precio_venta}}</td>
                                         <td>S/{{$producto->precio_descuento}}</td>
+                                        <td>S/{{$producto->precio_mayorista}}</td>
                                         <td>{{$producto->category->nombre}}</td>
                                         <td>
                                             <a href="{{route('admin.editproduct',['product_slug'=>$producto->slug])}}"><i class="fa fa-edit fa-2x text-info"></i></a>
