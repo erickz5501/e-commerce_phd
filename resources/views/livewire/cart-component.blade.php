@@ -16,10 +16,10 @@
                             <strong>Success</strong> {{Session::get('success_mesage')}}
                         </div>
                     @endif
-                    @if (Cart::count() > 0)
+                    @if (Cart::instance('cart')->count() > 0)
                         <h3 class="box-title">Nombre producto</h3>
                         <ul class="products-cart">
-                            @foreach (Cart::content() as $item )
+                            @foreach (Cart::instance('cart')->content() as $item )
                                 <li class="pr-cart-item">
                                     <div class="product-image">
                                         <figure><img src="{{('assets/images/products')}}/{{$item->model->imagen}}" alt="{{$item->model->nombre}}"></figure>
@@ -53,10 +53,10 @@
 				<div class="summary">
 					<div class="order-summary">
 						<h4 class="title-box">Order Summary</h4>
-						<p class="summary-info"><span class="title">Subtotal</span><b class="index">S/ {{Cart::subtotal()}}</b></p>
-						<p class="summary-info"><span class="title">Tax</span><b class="index">S/ {{Cart::tax()}}</b></p>
+						<p class="summary-info"><span class="title">Subtotal</span><b class="index">S/ {{Cart::instance('cart')->subtotal()}}</b></p>
+						<p class="summary-info"><span class="title">Tax</span><b class="index">S/ {{Cart::instance('cart')->tax()}}</b></p>
 						<p class="summary-info"><span class="title">Shipping</span><b class="index">Free Shipping</b></p>
-						<p class="summary-info total-info "><span class="title">Total</span><b class="index">S/ {{Cart::total()}}</b></p>
+						<p class="summary-info total-info "><span class="title">Total</span><b class="index">S/ {{Cart::instance('cart')->total()}}</b></p>
 					</div>
 					<div class="checkout-info">
 						<label class="checkbox-field">

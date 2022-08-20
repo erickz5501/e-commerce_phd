@@ -54,10 +54,35 @@
 
 					</div><!--end wrap shop control-->
 
+                    <style>
+                        .product-wish{
+                            position: absolute;
+                            top: 10%;
+                            left: 0;
+                            z-index: 99;
+                            right: 30px;
+                            text-align: right;
+                            padding-top: 0;
+                        }
+                        .product-wish .fa{
+                            color: #cbcbcb;
+                            font-size: 32px;
+                        }
+                        .product-wish .fa:hover{
+                            color: #ff3c45;
+                        }
+                        .fill-heart{
+                            color: #ff3c45 !important;
+                        }
+                    </style>
+
+
 					<div class="row">
 
 						<ul class="product-list grid-products equal-container">
-
+                            @php
+                                $witems = Cart::instance('wishlist')->content()->pluck('id');
+                            @endphp
                             @foreach ($productos as $producto)
 
 							<li class="col-lg-4 col-md-6 col-sm-6 col-xs-6 ">
@@ -74,6 +99,13 @@
 										{{-- <a href="{{route('product.details',['slug'=>$producto->slug])}}" class="product-name"><span>{{$producto->nombre}}</span></a>
 										<div class="wrap-price"><span class="product-price">{{$producto->precio_venta}}</span></div> --}}
 										{{-- <a href="#" class="btn add-to-cart">Add To Cart</a> --}}
+                                        <div class="product-wish">
+                                            @if ($witems->contains($producto->id))
+                                                <a href=""><i class="fa fa-heart fill-heart"></i></a>
+                                            @else
+                                                <a href="" wire:click.prevent="addToWishlist({{$producto->id}},'{{$producto->nombre}}',{{$producto->precio_venta}})"><i class="fa fa-heart"></i></a>
+                                            @endif
+                                        </div>
 									</div>
 								</div>
 							</li>
@@ -276,11 +308,11 @@
         <script>
             var slider = document.getElementById('slider');
             noUiSlider.create(slider,{
-                start:[1,1000],
+                start:[1,10000],
                 connect:true,
                 range :{
                     'min' : 1,
-                    'max' : 1000
+                    'max' : 10000
                 },
                 pips:{
                     mode:'steps',
