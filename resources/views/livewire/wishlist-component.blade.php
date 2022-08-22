@@ -34,7 +34,7 @@
             <ul class="product-list grid-products equal-container">
                 @foreach (Cart::instance('wishlist')->content() as $item)
                 <li class="col-lg-4 col-md-6 col-sm-6 col-xs-6 ">
-                    <div class="product product-style-3 equal-elem ">
+                    <div class="product product-style-3 equal-elem">
                         <div class="product-thumnail">
                             <a href="{{route('product.details',['slug'=>$item->model->slug])}}" title="{{$item->model->nombre}}">
                                 <figure><img src="{{asset('assets/images/products')}}/{{$item->model->imagen}}" alt="{{$item->model->nombre}}"></figure>
@@ -43,7 +43,7 @@
                         <div class="product-info">
                             <a href="{{route('product.details', ['slug'=>$item->model->slug])}}" class="product-name"><span>{{$item->model->nombre}}</span></a>
                             <div class="wrap-price"><span class="product-price">S/ {{$item->model->precio_venta}}</span></div>
-                            <a href="javascript:void(0)" class="btn add-to-cart" wire:click.prevent="store({{$item->model->id}},'{{$item->model->nombre}}',{{$item->model->precio_venta}})" >Añadir al carro</a>
+                            <a href="#" class="btn add-to-cart" wire:click.prevent="moveProductFromWishlistToCart({{$item->rowId}})" >Añadir al carro</a>
                             <div class="product-wish">
                                 <a href="#" wire:click.prevent="removefromWishlist({{$item->model->id}})" ><i class="fa fa-heart fill-heart"></i></a>
                             </div>
