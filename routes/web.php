@@ -21,6 +21,7 @@ use App\Http\Livewire\User\UserDashboardComponent;
 use App\Http\Livewire\DetailsComponent;
 use App\Http\Livewire\CategoriaComponent;
 use App\Http\Livewire\SearchComponent;
+use App\Http\Livewire\WishlistComponent;
 
 /*
 |--------------------------------------------------------------------------
@@ -50,6 +51,8 @@ Route::get('/product/{slug}', DetailsComponent::Class)->name('product.details');
 Route::get('/product-category/{slug}', CategoriaComponent::Class)->name('product.category');
 
 Route::get('/search', SearchComponent::Class)->name('product.search');
+
+Route::get('/wishlist', WishlistComponent::class)->name('product.wishlist');
 
 // Route::middleware([
 //     'auth:sanctum',

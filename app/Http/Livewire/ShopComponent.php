@@ -39,6 +39,14 @@ class ShopComponent extends Component
 
     }
 
+    public function removefromWishlist($producto_id){
+        foreach(Cart::instance('wishlist')->content() as $witen ){
+            Cart::instance('wishlist')->remove($witen->rowId);
+            $this->emitTo('wishlist-count-component', 'refreshComponent');
+            return;
+        }
+    }
+
     use WithPagination;
 
     public function render()

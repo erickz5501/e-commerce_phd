@@ -30,6 +30,19 @@ class SearchComponent extends Component
         session()->flash('success_mesage', 'Producto añadido al carrito');
         return redirect()->route('producto.cart');
     }
+    public function addToWishlist($producto_id, $producto_nombre, $producto_precio)
+    {
+       Cart::instance('wishlist')->add($producto_id, $producto_nombre, 1, $producto_precio)->associate('App\Models\Producto');
+       $this->emitTo('wishlist-count-component', 'refreshComponent');
+
+    }
+    public function removefromWishlist($producto_id){
+        foreach(Cart::instance('wishlist')->content() as $witen ){
+            Cart::instance('wishlist')->remove($witen->rowId);
+            $this->emitTo('wishlist-count-component', 'refreshComponent');
+            return;
+        }
+    }
 
     use WithPagination;
 

@@ -98,7 +98,7 @@
 										<a href="javascript:void(0)" class="btn add-to-cart" wire:click.prevent="store({{$producto->id}},'{{$producto->nombre}}',{{$producto->precio_venta}})" >Añadir al carro</a>
                                         <div class="product-wish">
                                             @if ($witems->contains($producto->id))
-                                                <a href="#"><i class="fa fa-heart fill-heart"></i></a>
+                                                <a href="#" wire:click.prevent="removefromWishlist({{$producto->id}})" ><i class="fa fa-heart fill-heart"></i></a>
                                             @else
                                                 <a href="#" wire:click.prevent="addToWishlist({{$producto->id}},'{{$producto->nombre}}',{{$producto->precio_venta}})"><i class="fa fa-heart"></i></a>
                                             @endif
