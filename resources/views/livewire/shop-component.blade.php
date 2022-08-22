@@ -96,14 +96,11 @@
 										<a href="{{route('product.details', ['slug'=>$producto->slug])}}" class="product-name"><span>{{$producto->nombre}}</span></a>
 										<div class="wrap-price"><span class="product-price">S/ {{$producto->precio_venta}}</span></div>
 										<a href="javascript:void(0)" class="btn add-to-cart" wire:click.prevent="store({{$producto->id}},'{{$producto->nombre}}',{{$producto->precio_venta}})" >Añadir al carro</a>
-										{{-- <a href="{{route('product.details',['slug'=>$producto->slug])}}" class="product-name"><span>{{$producto->nombre}}</span></a>
-										<div class="wrap-price"><span class="product-price">{{$producto->precio_venta}}</span></div> --}}
-										{{-- <a href="#" class="btn add-to-cart">Add To Cart</a> --}}
                                         <div class="product-wish">
                                             @if ($witems->contains($producto->id))
-                                                <a href=""><i class="fa fa-heart fill-heart"></i></a>
+                                                <a href="#"><i class="fa fa-heart fill-heart"></i></a>
                                             @else
-                                                <a href="" wire:click.prevent="addToWishlist({{$producto->id}},'{{$producto->nombre}}',{{$producto->precio_venta}})"><i class="fa fa-heart"></i></a>
+                                                <a href="#" wire:click.prevent="addToWishlist({{$producto->id}},'{{$producto->nombre}}',{{$producto->precio_venta}})"><i class="fa fa-heart"></i></a>
                                             @endif
                                         </div>
 									</div>

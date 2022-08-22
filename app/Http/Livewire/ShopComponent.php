@@ -35,6 +35,7 @@ class ShopComponent extends Component
     public function addToWishlist($producto_id, $producto_nombre, $producto_precio)
     {
        Cart::instance('wishlist')->add($producto_id, $producto_nombre, 1, $producto_precio)->associate('App\Models\Producto');
+       $this->emitTo('wishlist-count-component', 'refreshComponent');
 
     }
 
