@@ -34,6 +34,7 @@
                                             <a class="btn btn-increase" wire:click.prevent="increaseQuantity('{{$item->rowId}}')"></a>
                                             <a class="btn btn-reduce"  wire:click.prevent="decreaseQuantity('{{$item->rowId}}')"></a>
                                         </div>
+                                        <p class="text-center"><a href="#" wire:click.prevent="switchToSaveForLater('{{$item->rowId}}')" >Guardar para despues</a></p>
                                     </div>
                                     <div class="price-field sub-total"><p class="price">S/ {{$item->subtotal}}</p></div>
                                     <div class="delete">
@@ -69,6 +70,42 @@
 						<a class="btn btn-clear" href="#" wire:click.prevent="destroyAll()" >Clear Shopping Cart</a>
 						<a class="btn btn-update" href="#">Update Shopping Cart</a>
 					</div>
+				</div>
+
+                <div class="wrap-iten-in-cart">
+                    <h3 class="title-box" style="border-bottom: 1px solid; padding-bottom:15px;">{{Cart::instance('saveForLater')->count()}} items guardado para despues</h3>
+                    @if (Session::has('s_success_message'))
+                        <div class="alert alert-success">
+                            <strong>Success</strong> {{Session::get('s_success_message')}}
+                        </div>
+                    @endif
+                    @if (Cart::instance('saveForLater')->count() > 0)
+                        <h3 class="box-title">Nombre producto</h3>
+                        <ul class="products-cart">
+                            @foreach (Cart::instance('saveForLater')->content() as $item )
+                                <li class="pr-cart-item">
+                                    <div class="product-image">
+                                        <figure><img src="{{('assets/images/products')}}/{{$item->model->imagen}}" alt="{{$item->model->nombre}}"></figure>
+                                    </div>
+                                    <div class="product-name">
+                                        <a class="link-to-product" href="{{route('product.details',['slug'=>$item->model->slug])}}">{{$item->model->nombre}}</a>
+                                    </div>
+                                    <div class="price-field produtc-price"><p class="price">S/ {{$item->model->precio_venta}}</p></div>
+                                    <div class="quantity">
+                                        <p class="text-center"><a href="#" wire:click.prevent="moveToCart('{{$item->rowId}}')" >Mover al carrito</a></p>
+                                    </div>
+                                    <div class="delete">
+                                        <a href="#" wire:click.prevent="deleteFromSaveForLater('{{$item->rowId}}')" class="btn btn-delete" title="">
+                                            <span>Eliminar del guardado para despues</span>
+                                            <i class="fa fa-times-circle" aria-hidden="true"></i>
+                                        </a>
+                                    </div>
+                                </li>
+                            @endforeach
+                        </ul>
+                    @else
+                        <p>No ahí productos.</p>
+                    @endif
 				</div>
 
 				<div class="wrap-show-advance-info-box style-1 box-in-site">
