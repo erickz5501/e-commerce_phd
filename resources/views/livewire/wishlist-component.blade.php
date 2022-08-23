@@ -8,6 +8,7 @@
                 <li class="item-link"><span>Lista de deseos</span></li>
             </ul>
         </div>
+
         <style>
             .product-wish{
                 position: absolute;
@@ -29,6 +30,7 @@
                 color: #ff3c45 !important;
             }
         </style>
+
         <div class="row">
             @if (Cart::instance('wishlist')->content()->count() > 0 )
             <ul class="product-list grid-products equal-container">
@@ -43,7 +45,8 @@
                         <div class="product-info">
                             <a href="{{route('product.details', ['slug'=>$item->model->slug])}}" class="product-name"><span>{{$item->model->nombre}}</span></a>
                             <div class="wrap-price"><span class="product-price">S/ {{$item->model->precio_venta}}</span></div>
-                            <a href="#" class="btn add-to-cart" wire:click.prevent="moveProductFromWishlistToCart({{$item->rowId}})" >Añadir al carro</a>
+                            <a href="#" class="btn add-to-cart" wire:click.prevent="store({{$item->rowId}},'{{$item->model->nombre}}',{{$item->model->precio_venta}})" >Añadir al carro</a>
+                            {{-- <a href="#" class="btn add-to-cart" wire:click.prevent="moveProductFromWishlistToCart({{$item->rowId}})" >Añadir al carro</a> --}}
                             <div class="product-wish">
                                 <a href="#" wire:click.prevent="removefromWishlist({{$item->model->id}})" ><i class="fa fa-heart fill-heart"></i></a>
                             </div>
@@ -58,3 +61,11 @@
         </div>
     </div>
 </main>
+
+@push('scripts')
+    <script>
+        function alerta(){
+            alert('Alerta')
+        }
+    </script>
+@endpush
