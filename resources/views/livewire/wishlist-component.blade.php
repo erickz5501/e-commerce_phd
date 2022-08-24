@@ -44,9 +44,10 @@
                         </div>
                         <div class="product-info">
                             <a href="{{route('product.details', ['slug'=>$item->model->slug])}}" class="product-name"><span>{{$item->model->nombre}}</span></a>
-                            <div class="wrap-price"><span class="product-price">S/ {{$item->model->precio_venta}}</span></div>
-                            <a href="#" class="btn add-to-cart" wire:click.prevent="store({{$item->rowId}},'{{$item->model->nombre}}',{{$item->model->precio_venta}})" >Añadir al carro</a>
-                            {{-- <a href="#" class="btn add-to-cart" wire:click.prevent="moveProductFromWishlistToCart({{$item->rowId}})" >Añadir al carro</a> --}}
+                            <div class="wrap-price"><span class="product-price">S/ {{$item->model->precio_venta}}</span>
+                            </div>
+                            {{-- <a href="#" class="btn add-to-cart" wire:click.prevent="moveProductFromWishlistToCart({{$item->rowId}},'{{$item->model->nombre}}',{{$item->model->precio_venta}})" >Añadir al carro</a> --}}
+                            <a href="#" class="btn add-to-cart" wire:click.prevent="moveProductFromWishlistToCart('{{$item->rowId}}')" >Añadir al carro</a>
                             <div class="product-wish">
                                 <a href="#" wire:click.prevent="removefromWishlist({{$item->model->id}})" ><i class="fa fa-heart fill-heart"></i></a>
                             </div>
