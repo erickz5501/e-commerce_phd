@@ -158,6 +158,12 @@ return [
     |
     */
 
-    'attributes' => [],
+    'attributes' => [
+
+        'value' => 'valor',
+        'type' => 'tipo',
+        'cart_value' => 'valor en el carrito',
+        'code' => 'codigo'
+    ],
 
 ];
