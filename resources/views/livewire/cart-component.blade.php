@@ -55,14 +55,39 @@
 					<div class="order-summary">
 						<h4 class="title-box">Order Summary</h4>
 						<p class="summary-info"><span class="title">Subtotal</span><b class="index">S/ {{Cart::instance('cart')->subtotal()}}</b></p>
-						<p class="summary-info"><span class="title">Tax</span><b class="index">S/ {{Cart::instance('cart')->tax()}}</b></p>
-						<p class="summary-info"><span class="title">Shipping</span><b class="index">Free Shipping</b></p>
-						<p class="summary-info total-info "><span class="title">Total</span><b class="index">S/ {{Cart::instance('cart')->total()}}</b></p>
-					</div>
-					<div class="checkout-info">
+                        @if (Session::has('coupon'))
+                            <p class="summary-info"><span class="title">Descuento ({{Session::get('coupon')['code']}}) <a href="#" wire:click.prevent="removeCoupon"> <i class="fa fa-times text-danger"></i></a></span></span><b class="index"> -S/{{number_format($discount,2)}}</b></p>
+                            <p class="summary-info"><span class="title">Subtotal con Descuento</span></span><b class="index">S/{{number_format($subTotalAfterDiscount,2)}}</b></p>
+                            <p class="summary-info"><span class="title">Tax ({{config('cart.tax')}}%)</span></span><b class="index">S/{{number_format($taxlAfterDiscount,2)}}</b></p>
+                            <p class="summary-info"><span class="title">Total</span><b class="index">S/{{number_format($totalAfterDiscount,2)}}</b></p>
+
+						@else
+                            <p class="summary-info"><span class="title">Tax</span><b class="index">S/ {{Cart::instance('cart')->tax()}}</b></p>
+                            <p class="summary-info"><span class="title">Shipping</span><b class="index">Free Shipping</b></p>
+                            <p class="summary-info total-info "><span class="title">Total</span><b class="index">S/ {{Cart::instance('cart')->total()}}</b></p>
+					@endif
+                    </div>
+					    <div class="checkout-info">
+                        @if (!Session::has('coupon'))
 						<label class="checkbox-field">
-							<input class="frm-input " name="have-code" id="have-code" value="" type="checkbox"><span>I have promo code</span>
+							<input class="frm-input " name="have-code" id="have-code" value="1" type="checkbox" wire:model="haveCouponCode"><span>Tengo un código promocional</span>
 						</label>
+                        @if ($haveCouponCode == 1)
+                            <div class="summary-item">
+                                <form wire:submit.prevent="applyCouponCode">
+                                    <h4 class="title-box">Código del cupón</h4>
+                                    @if (Session::has('coupon_message'))
+                                        <div class="alert alert-danger" role="danger">{{Session::get('coupon_message')}}</div>
+                                    @endif
+                                    <p class="row-in-form">
+                                        <input type="text" placeholder="Ingrese el código del cupón" name="coupon-code" wire:model="couponCode"/>
+                                    </p>
+                                    <button type="submit" class="btn btn-small">Aplicar</button>
+                                </form>
+                            </div>
+                        @endif
+                    @endif
+
 						<a class="btn btn-checkout" href="checkout.html">Check out</a>
 						<a class="link-to-shop" href="shop.html">Continue Shopping<i class="fa fa-arrow-circle-right" aria-hidden="true"></i></a>
 					</div>
