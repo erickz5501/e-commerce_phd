@@ -163,7 +163,8 @@ return [
         'value' => 'valor',
         'type' => 'tipo',
         'cart_value' => 'valor en el carrito',
-        'code' => 'codigo'
+        'code' => 'codigo',
+        'expiry_date' => 'fecha de expiración'
     ],
 
 ];

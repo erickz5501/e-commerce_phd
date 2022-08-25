@@ -59,13 +59,14 @@
                             <p class="summary-info"><span class="title">Descuento ({{Session::get('coupon')['code']}}) <a href="#" wire:click.prevent="removeCoupon"> <i class="fa fa-times text-danger"></i></a></span></span><b class="index"> -S/{{number_format($discount,2)}}</b></p>
                             <p class="summary-info"><span class="title">Subtotal con Descuento</span></span><b class="index">S/{{number_format($subTotalAfterDiscount,2)}}</b></p>
                             <p class="summary-info"><span class="title">Tax ({{config('cart.tax')}}%)</span></span><b class="index">S/{{number_format($taxlAfterDiscount,2)}}</b></p>
-                            <p class="summary-info"><span class="title">Total</span><b class="index">S/{{number_format($totalAfterDiscount,2)}}</b></p>
+                            <p class="summary-info"><span class="title">TOTAL A PAGAR</span><b class="index">S/{{number_format($totalAfterDiscount,2)}}</b></p>
 
 						@else
                             <p class="summary-info"><span class="title">Tax</span><b class="index">S/ {{Cart::instance('cart')->tax()}}</b></p>
                             <p class="summary-info"><span class="title">Shipping</span><b class="index">Free Shipping</b></p>
-                            <p class="summary-info total-info "><span class="title">Total</span><b class="index">S/ {{Cart::instance('cart')->total()}}</b></p>
+                            <p class="summary-info total-info "><span class="title">TOTAL A PAGAR</span><b class="index">S/ {{Cart::instance('cart')->total()}}</b></p>
 					@endif
+                    <BR>
                     </div>
 					    <div class="checkout-info">
                         @if (!Session::has('coupon'))
