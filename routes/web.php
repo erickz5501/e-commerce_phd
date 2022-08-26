@@ -25,6 +25,7 @@ use App\Http\Livewire\DetailsComponent;
 use App\Http\Livewire\CategoriaComponent;
 use App\Http\Livewire\SearchComponent;
 use App\Http\Livewire\WishlistComponent;
+use App\Http\Livewire\ThankYouComponent;
 
 /*
 |--------------------------------------------------------------------------
@@ -56,6 +57,8 @@ Route::get('/product-category/{slug}', CategoriaComponent::Class)->name('product
 Route::get('/search', SearchComponent::Class)->name('product.search');
 
 Route::get('/wishlist', WishlistComponent::class)->name('product.wishlist');
+
+Route::get('/thank-you', ThankYouComponent::class)->name('thankyou');
 
 // Route::middleware([
 //     'auth:sanctum',
