@@ -22,6 +22,8 @@ use App\Http\Livewire\Admin\AdminEditCouponComponent;
 use App\Http\Livewire\Admin\AdminSaleComponent;
 use App\Http\Livewire\Admin\AdminOrderComponent;
 use App\Http\Livewire\User\UserDashboardComponent;
+use App\Http\Livewire\User\UserOrdersComponent;
+use App\Http\Livewire\User\UserOrderDetailsComponent;
 use App\Http\Livewire\DetailsComponent;
 use App\Http\Livewire\CategoriaComponent;
 use App\Http\Livewire\SearchComponent;
@@ -62,7 +64,11 @@ Route::get('/checkout', CheckoutComponent::class)->name('checkout');
 //For User
 Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     Route::get('/user/dashboard', UserDashboardComponent::class)->name('user.dashboard');
+    Route::get('/user/orders', UserOrdersComponent::class)->name('user.orders');
+    Route::get('/user/orders/{order_id}', UserOrderDetailsComponent::class)->name('user.orderdetails');
+
 });
+
 
 //For Admin
 Route::middleware(['auth:sanctum', 'verified', 'authadmin'])->group(function () {
