@@ -19,12 +19,13 @@ class CreateOrdersTable extends Migration
             $table->decimal('subtotal');
             $table->decimal('discount')->default(0);
             $table->decimal('tax');
+            $table->decimal('total');
             $table->string('firstname');
             $table->string('lastname');
             $table->string('mobile1');
             $table->string('mobile2')->nullable();
             $table->string('email');
-            $table->string('department');
+            $table->string('departament');
             $table->string('province');
             $table->string('district');
             $table->string('address');

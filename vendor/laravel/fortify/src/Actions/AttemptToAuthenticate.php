@@ -7,7 +7,8 @@ use Illuminate\Contracts\Auth\StatefulGuard;
 use Illuminate\Validation\ValidationException;
 use Laravel\Fortify\Fortify;
 use Laravel\Fortify\LoginRateLimiter;
-
+use Illuminate\Support\Facades\Auth;
+use App\Providers\RouteServiceProvider;
 class AttemptToAuthenticate
 {
     /**
@@ -54,6 +55,15 @@ class AttemptToAuthenticate
             $request->only(Fortify::username(), 'password'),
             $request->boolean('remember'))
         ) {
+
+            if(Auth::user()->utype === 'ADM'){
+                session(['utype'=>'ADM']);
+                return redirect(RouteServiceProvider::HOME);
+            }else if(Auth::user()->utype === 'USR'){
+                session(['utype'=>'USR']);
+                return redirect(RouteServiceProvider::HOME);
+            }
+
             return $next($request);
         }
 

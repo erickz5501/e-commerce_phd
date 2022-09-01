@@ -174,6 +174,9 @@
                                         <a href="{{ route('admin.sale')}}" class="link-term mercado-item-title">Oferta</a>
                                     </li>
                                     <li class="menu-item">
+                                        <a href="{{ route('admin.orders')}}" class="link-term mercado-item-title">Pedidos</a>
+                                    </li>
+                                    <li class="menu-item">
                                         <a href="contact-us.html" class="link-term mercado-item-title">Contact Us</a>
                                     </li>
                                 </ul>

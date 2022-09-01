@@ -20,6 +20,7 @@ use App\Http\Livewire\Admin\AdminCouponsComponent;
 use App\Http\Livewire\Admin\AdminAddCouponComponent;
 use App\Http\Livewire\Admin\AdminEditCouponComponent;
 use App\Http\Livewire\Admin\AdminSaleComponent;
+use App\Http\Livewire\Admin\AdminOrderComponent;
 use App\Http\Livewire\User\UserDashboardComponent;
 use App\Http\Livewire\DetailsComponent;
 use App\Http\Livewire\CategoriaComponent;
@@ -37,10 +38,6 @@ use App\Http\Livewire\ThankYouComponent;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-// Route::get('/', function () {
-//     return view('welcome');
-// });
 
 Route::get('/', HomeComponent::Class);
 
@@ -60,15 +57,7 @@ Route::get('/wishlist', WishlistComponent::class)->name('product.wishlist');
 
 Route::get('/thank-you', ThankYouComponent::class)->name('thankyou');
 
-// Route::middleware([
-//     'auth:sanctum',
-//     config('jetstream.auth_session'),
-//     'verified'
-// ])->group(function () {
-//     Route::get('/dashboard', function () {
-//         return view('dashboard');
-//     })->name('dashboard');
-// });
+Route::get('/checkout', CheckoutComponent::class)->name('checkout');
 
 //For User
 Route::middleware(['auth:sanctum', 'verified'])->group(function () {
@@ -99,6 +88,6 @@ Route::middleware(['auth:sanctum', 'verified', 'authadmin'])->group(function () 
     Route::get('/admin/coupons/add', AdminAddCouponComponent::class)->name('admin.addcoupon');
     Route::get('/admin/coupons/edit/{coupon_id}', AdminEditCouponComponent::class)->name('admin.editcoupon');
 
-    Route::get('/checkout', CheckoutComponent::class)->name('checkout');
+    Route::get('admin/orders', AdminOrderComponent::class)->name('admin.orders');
 
 });

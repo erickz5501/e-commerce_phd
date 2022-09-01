@@ -89,12 +89,11 @@
                         @endif
                     @endif
 
-						<a class="btn btn-checkout" href="#" wire:click.prevent="checkout">Check out</a>
-						<a class="link-to-shop" href="shop.html">Continue Shopping<i class="fa fa-arrow-circle-right" aria-hidden="true"></i></a>
+						<a class="btn btn-checkout" href="#" wire:click.prevent="checkout">Comprar ahora</a>
+						<a class="link-to-shop" href="shop.html">Continuar comprando<i class="fa fa-arrow-circle-right" aria-hidden="true"></i></a>
 					</div>
 					<div class="update-clear">
-						<a class="btn btn-clear" href="#" wire:click.prevent="destroyAll()" >Clear Shopping Cart</a>
-						<a class="btn btn-update" href="#">Update Shopping Cart</a>
+						<a class="btn btn-clear" href="#" wire:click.prevent="destroyAll()" >Vaciar carrito de compras</a>
 					</div>
 				</div>
                 @else
