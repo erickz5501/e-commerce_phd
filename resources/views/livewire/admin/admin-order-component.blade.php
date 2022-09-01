@@ -39,6 +39,7 @@
                                     <th>ZIP</th>
                                     <th>Estado</th>
                                     <th>Fecha de compra</th>
+                                    <th>Opciones</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -56,11 +57,9 @@
                                         <td>{{$order->zipcode}}</td>
                                         <td>{{$order->status}}</td>
                                         <td>{{$order->created_at}}</td>
-                                        {{-- <td>
-                                            <a href="{{route('admin.editproduct',['product_slug'=>$producto->slug])}}"><i class="fa fa-edit fa-2x text-info"></i></a>
-
-                                            <a href="javascript:void(0)" onclick="Confirm('{{$producto->id}}')" style="margin-left: 10px;" ><i class="fa fa-times fa-2x text-danger"></i>
-                                        </td> --}}
+                                        <td>
+                                            <a href="{{route('admin.orderdetails',['order_id'=>$order->id])}}" class="btn btn-info btn-sm">Detalles </a>
+                                        </td>
                                     </tr>
 
                                 @endforeach
