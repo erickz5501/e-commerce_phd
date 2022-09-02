@@ -134,6 +134,20 @@ class CheckoutComponent extends Component
             $transaction->mode = 'cod';
             $transaction->status = 'pending';
             $transaction->save();
+        }elseif($this->paymentmode == 'visa'){
+            $transaction = new Transaction();
+            $transaction->user_id = Auth::user()->id;
+            $transaction->order_id = $order->id;
+            $transaction->mode = 'visa';
+            $transaction->status = 'approved';
+            $transaction->save();
+        }elseif($this->paymentmode == 'banca'){
+            $transaction = new Transaction();
+            $transaction->user_id = Auth::user()->id;
+            $transaction->order_id = $order->id;
+            $transaction->mode = 'banca';
+            $transaction->status = 'pending';
+            $transaction->save();
         }
 
         $this->thankyou = 1;
