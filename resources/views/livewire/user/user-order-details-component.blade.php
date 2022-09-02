@@ -1,8 +1,10 @@
 <div>
     <div class="container" style="padding:30px 0;">
-
         <div class="row">
-            <div class="col-md-12">
+            <div class="col-md">
+                @if (Session::has('order_message'))
+                    <div class="alert alert-success" role="alert">{{Session::get('order_message')}}</div>
+                @endif
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         <div class="row">
@@ -10,9 +12,38 @@
                                 Detalle del pedido
                             </div>
                             <div class="col-md-6">
-                                <a href="{{route('user.orders')}}" class="btn btn-success pull-right">Mis ordenes</a>
+                                <a href="{{route('user.orders')}}" class="btn btn-success pull-right" style="margin-left: 10px">Mis ordenes</a>
+                               @if ($order->status=='canceled')
+                                    <a href="" wire:click.prevent="cancelOrder" class="btn btn-warning pull-right">Cancelar pedido</a>
+                                @endif
                             </div>
                         </div>
+                    </div>
+                    <div class="panel-body">
+                        <table class="table">
+                            <th>Order ID</th>
+                            <td>{{$order->id}}</td>
+                            <th>Order Date</th>
+                            <td>{{$order->created_at}}</td>
+                            <th>Status</th>
+                            <td>{{$order->status}}</td>
+                            @if ($order->status=='delivered')
+                                <th>Delivery Date</th>
+                                <td>{{$order->delivered_date}}</td>
+                            @elseif ($order->status=='canceled')
+                            <th>Canceled Date</th>
+                            <td>{{$order->canceled_date}}</td>
+                            @endif
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        Articulos Pedidos
                     </div>
                     <div class="panel-body">
                         <div class="wrap-iten-in-cart">
