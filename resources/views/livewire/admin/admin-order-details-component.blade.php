@@ -1,6 +1,5 @@
 <div>
     <div class="container" style="padding:30px 0;">
-
         <div class="row">
             <div class="col-md-12">
                 <div class="panel panel-default">
@@ -11,6 +10,41 @@
                             </div>
                             <div class="col-md-6">
                                 <a href="{{route('admin.orders')}}" class="btn btn-success pull-right">Todos los pedidos</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel-body">
+                        <table class="table">
+                            <tr>
+                                <th>Order ID</th>
+                                <td>{{ $order->id}}</td>
+                                <th>Fecha de pedido</th>
+                                <td>{{ $order->created_at }}</td>
+                                <th>Stado</th>
+                                <td>{{ $order->status }}</td>
+                                @if ($order->status == "delivered")
+                                    <th>Fecha de delivey</th>
+                                    <td>{{ $order->delivered_date}}</td>
+                                @elseif($order->status == "canceled")
+                                    <th>Fecha de cancelación</th>
+                                    <td>{{ $order->canceled_date}}</td>
+                                @endif
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <div class="row">
+                            <div class="col-md-6">
+                                Detalle del pedido
+                            </div>
+                            <div class="col-md-6">
+
                             </div>
                         </div>
                     </div>

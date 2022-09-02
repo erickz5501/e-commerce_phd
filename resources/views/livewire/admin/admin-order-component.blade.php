@@ -19,9 +19,9 @@
                     </div>
 
                     <div class="panel-body">
-                        @if (Session::has('message'))
+                        @if (Session::has('order_message'))
                             <div class="alert alert-success" role="alert">
-                                {{ Session::get('message')}}
+                                {{ Session::get('order_message')}}
                             </div>
                         @endif
                         <table class="table table-striped table-bordered">
@@ -39,7 +39,7 @@
                                     <th>ZIP</th>
                                     <th>Estado</th>
                                     <th>Fecha de compra</th>
-                                    <th>Opciones</th>
+                                    <th colspan="2" class="text-center" >Opciones</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -59,6 +59,17 @@
                                         <td>{{$order->created_at}}</td>
                                         <td>
                                             <a href="{{route('admin.orderdetails',['order_id'=>$order->id])}}" class="btn btn-info btn-sm">Detalles </a>
+                                        </td>
+                                        <td>
+                                            <div class="dropdown">
+                                                <button class="btn btn-success btn-sm dropdown" type="button" data-toggle="dropdown">Estado
+                                                    <span class="caret"></span>
+                                                </button>
+                                                <ul class="dropdown-menu" >
+                                                    <li><a href="#" wire:click.prevent="updateOrderStatus({{$order->id}},'delivered')" >Delivery</a></li>
+                                                    <li><a href="#" wire:click.prevent="updateOrderStatus({{$order->id}},'canceled')" >Cancelado</a></li>
+                                                </ul>
+                                            </div>
                                         </td>
                                     </tr>
 
