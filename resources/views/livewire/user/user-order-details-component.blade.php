@@ -13,7 +13,7 @@
                             </div>
                             <div class="col-md-6">
                                 <a href="{{route('user.orders')}}" class="btn btn-success pull-right" style="margin-left: 10px">Mis ordenes</a>
-                               @if ($order->status=='canceled')
+                               @if ($order->status!='canceled')
                                     <a href="" wire:click.prevent="cancelOrder" class="btn btn-warning pull-right">Cancelar pedido</a>
                                 @endif
                             </div>
@@ -62,6 +62,9 @@
                                             <h5>{{$item->quantity}}</h5>
                                         </div>
                                         <div class="price-field sub-total"><p class="price">S/ {{$item->price * $item->quantity}}</p></div>
+                                        @if ($order->status == 'delivered' && $item->rstatus == false)
+                                            <div class="price-field sub-total"><p class="price"><a href="{{route('user.review',['order_item_id'=>$item->id])}}">Escriba una reseña</a></p></div>
+                                        @endif
                                     </li>
                                 @endforeach
                             </ul>
