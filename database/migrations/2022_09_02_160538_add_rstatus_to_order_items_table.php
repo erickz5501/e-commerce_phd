@@ -14,7 +14,7 @@ class AddRstatusToOrderItemsTable extends Migration
     public function up()
     {
         Schema::table('order_items', function (Blueprint $table) {
-            table->boolean('rstatus')->default(false);
+            $table->boolean('rstatus')->default(false);
         });
     }
 
@@ -26,7 +26,7 @@ class AddRstatusToOrderItemsTable extends Migration
     public function down()
     {
         Schema::table('order_items', function (Blueprint $table) {
-            table->boolean('rstatus')->default(false);
+            $table->boolean('rstatus')->default(false);
         });
     }
 }

@@ -19,7 +19,7 @@ class CreateReviewsTable extends Migration
             $table->text('comment');
             $table->bigInteger('order_item_id')->unsigned();
             $table->timestamps();
-            $table->foreign('order_item_id')->reference('id')->on('order_items')->onDelate('cascade');
+            $table->foreign('order_item_id')->references('id')->on('order_items')->onDelate('cascade');
         });
     }
 
