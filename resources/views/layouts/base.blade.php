@@ -89,8 +89,7 @@
                                             </li>
                                         @else
                                             <li class="menu-item menu-item-has-children parent">
-                                                <a title="Mi cuenta" href="#">Mi cuenta ({{ Auth::user()->name }}) <i
-                                                        class="fa fa-angle-down" aria-hidden="true"></i></a>
+                                                <a title="Mi cuenta" href="#">Mi cuenta ({{ Auth::user()->name }}) <i class="fa fa-angle-down" aria-hidden="true"></i></a>
                                                 <ul class="submenu curency">
                                                     <li class="menu-item">
                                                         <a title="Dashboard" href=" {{ route('user.dashboard') }} ">Dashboard</a>
@@ -99,9 +98,12 @@
                                                         <a title="Mis Ordenes" href=" {{ route('user.orders') }} ">Mis Ordenes</a>
                                                     </li>
                                                     <li class="menu-item">
-                                                        <a href="{{ route('logout') }}"
-                                                            onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Cerrar
-                                                            sesión</a>
+                                                        <a title="Cambiar contraseña" href=" {{ route('user.changepassword') }} ">Cambiar contraseña</a>
+                                                    </li>
+                                                    <li class="menu-item">
+                                                        <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                                            Cerrar sesión
+                                                        </a>
                                                     </li>
                                                     <form id="logout-form" action="{{ route('logout') }}" method="POST">
                                                         @csrf
