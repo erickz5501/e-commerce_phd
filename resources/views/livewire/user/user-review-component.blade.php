@@ -25,7 +25,7 @@
                     <div id="respond" class="comment-respond">
                         <form wire:submit.prevent="addReview" id="commentform" class="comment-form" >
                             <div class="comment-form-rating">
-                                <span>Your rating</span>
+                                <span>Valoración</span>
                                 <p class="stars">
                                     <label for="rated-1"></label>
                                     <input type="radio" id="rated-1" name="rating" value="1" wire:model="rating">
@@ -41,7 +41,7 @@
                                 </p>
                             </div>
                             <p class="comment-form-comment">
-                                <label for="comment">Your review <span class="required">*</span>
+                                <label for="comment">Comentarios <span class="required">*</span>
                                 </label>
                                 <textarea id="comment" name="comment" cols="45" rows="8" wire:model="comment"></textarea>
                             </p>
