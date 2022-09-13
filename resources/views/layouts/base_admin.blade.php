@@ -82,6 +82,9 @@
                                                         <a title="Contactos" href="{{ route('admin.contact') }}">Mensajes</a>
                                                     </li>
                                                     <li class="menu-item">
+                                                        <a title="Configuración" href="{{ route('admin.settings') }}">Configuración</a>
+                                                    </li>
+                                                    <li class="menu-item">
                                                         <a href="{{ route('logout') }}"
                                                             onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Cerrar
                                                             sesión</a>
