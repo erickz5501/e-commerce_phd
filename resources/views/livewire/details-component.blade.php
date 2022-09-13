@@ -25,11 +25,18 @@
 						<div class="detail-media">
 							<div class="product-gallery">
 							  <ul class="slides">
-
-							    <li data-thumb="{{asset('assets/images/products')}}/{{$productos->imagen}}">
+							        <li data-thumb="{{asset('assets/images/products')}}/{{$productos->imagen}}">
 							    	<img src="{{asset('assets/images/products')}}/{{$productos->imagen}}" alt="{{$productos->nombre}}" />
 							    </li>
-
+                                @php
+                                    $imagenes = explode(",",$productos->imagenes)
+                                @endphp
+                                @foreach ($imagenes as $images)
+                                    @if ($images)
+                                        <li data-thumb="{{asset('assets/images/products')}}/{{$images}}">
+                                        <img src="{{asset('assets/images/products')}}/{{$images}}" alt="{{$productos->nombre}}" />
+                                    @endif
+                                @endforeach
 							  </ul>
 							</div>
 						</div>

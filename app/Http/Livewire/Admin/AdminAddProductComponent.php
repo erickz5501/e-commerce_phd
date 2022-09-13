@@ -8,6 +8,7 @@ use App\Models\Producto;
 use Carbon\Carbon;
 use Illuminate\Support\Str;
 use Livewire\withFileUploads;
+use Illuminate\Http\UploadedFile;
 
 
 
@@ -85,11 +86,12 @@ public function addProduct()
     $imageName = Carbon::now()->timestamp. '.' . $this->imagen->extension();
     $this->imagen->storeAs('products',$imageName);
     $product ->imagen = $imageName;
-    if ($this->$imagenes) {
-        $imagenesname='';
-        foreach ($this->imagenes as $key => $imagens) {
-            $imgName = Carbon::now()->timestamp. $key. '.' . $this->imagens->extension();
-            $imagens->sotreAs('products',$imgName);
+    if ($this->imagenes)
+    {
+        $imagesname = '';
+        foreach ($this->imagenes as $key => $image) {
+            $imgName = Carbon::now()->timestamp. $key. '.' . $image->extension();
+            $image->storeAs('products',$imgName);
             $imagesname= $imagesname . ',' . $imgName;
         }
         $product->imagenes = $imagesname;

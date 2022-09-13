@@ -56,15 +56,15 @@
                                         <ul>
                                             <li>
                                                 <i class="fa fa-map-marker" aria-hidden="true"></i>
-                                                <p class="contact-txt">{{$settings->address}}</p>
+                                                <p class="contact-txt">{{$setting->address}}</p>
                                             </li>
                                             <li>
                                                 <i class="fa fa-phone" aria-hidden="true"></i>
-                                                <p class="contact-txt">{{$settings->phone}}</p>
+                                                <p class="contact-txt">{{$setting->phone}}</p>
                                             </li>
                                             <li>
                                                 <i class="fa fa-envelope" aria-hidden="true"></i>
-                                                <p class="contact-txt">{{$settings->email}}</p>
+                                                <p class="contact-txt">{{$setting->email}}</p>
                                             </li>
                                         </ul>
                                     </div>
@@ -79,7 +79,7 @@
                                 <div class="item-content">
                                     <div class="wrap-hotline-footer">
                                         <span class="desc">Call Us toll Free</span>
-                                        <b class="phone-number">{{$settings->phone2}}</b>
+                                        <b class="phone-number">{{$setting->phone2}}</b>
                                     </div>
                                 </div>
                             </div>
@@ -163,15 +163,15 @@
                                 <div class="item-content">
                                     <div class="wrap-list-item social-network">
                                         <ul>
-                                            <li><a href="{{$settings->twitter}}" class="link-to-item" title="twitter"><i
+                                            <li><a href="{{$setting->twitter}}" class="link-to-item" title="twitter"><i
                                                         class="fa fa-twitter" aria-hidden="true"></i></a></li>
-                                            <li><a href="{{$settings->facebook}}" class="link-to-item" title="facebook"><i
+                                            <li><a href="{{$setting->facebook}}" class="link-to-item" title="facebook"><i
                                                         class="fa fa-facebook" aria-hidden="true"></i></a></li>
-                                            <li><a href="{{$settings->pinterest}}" class="link-to-item" title="pinterest"><i
+                                            <li><a href="{{$setting->pinterest}}" class="link-to-item" title="pinterest"><i
                                                         class="fa fa-pinterest" aria-hidden="true"></i></a></li>
-                                            <li><a href="{{$settings->instagram}}" class="link-to-item" title="instagram"><i
+                                            <li><a href="{{$setting->instagram}}" class="link-to-item" title="instagram"><i
                                                         class="fa fa-instagram" aria-hidden="true"></i></a></li>
-                                            <li><a href="{{$settings->youtube}}" class="link-to-item" title="vimeo"><i
+                                            <li><a href="{{$setting->youtube}}" class="link-to-item" title="vimeo"><i
                                                         class="fa fa-vimeo" aria-hidden="true"></i></a></li>
                                         </ul>
                                     </div>

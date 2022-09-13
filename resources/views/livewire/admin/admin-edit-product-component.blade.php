@@ -111,6 +111,19 @@
                             </div>
                         </div>
                         <div class="form-group">
+                            <label class="col-md-4 control-label" >Galeria</label>
+                            <div class="col-md-4">
+                                <input type="file" class="input-file" wire:model="newimagenes" multiple/>
+                                @if ($newimagenes)
+                                    @foreach ($newimagenes as $image)
+                                    <img src="{{$image->temporaryUrl()}}" width="120">
+                                    @endforeach
+                                @endif
+                                @error('newimagenes') <p class="text-danger">{{$message}}</p>@enderror
+
+                            </div>
+                        </div>
+                        <div class="form-group">
                             <label class="col-md-4 control-label">Categoria</label>
                             <div class="col-md-4">
                                 <select class="form-control" wire:model="categoria_id">
