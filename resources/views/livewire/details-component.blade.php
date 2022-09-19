@@ -48,7 +48,7 @@
                                     }
                                 </style>
                                 @php
-                                    $promedio = 0;
+                                    $promedio = 1;
                                 @endphp
                                 @foreach ($productos->orderItems->where('rstatus',1) as $orderItem)
                                     @php
@@ -80,10 +80,10 @@
                                 <div class="wrap-price"><span class="product-price">S/{{$productos->precio_venta}}</span></div>
                             @endif
                             <div class="stock-info in-stock">
-                                <p class="availability">Disponibles: <b>{{$productos->stock_estado}}</b></p>
+                                <p class="availability">Disponibles: <b>{{$productos->cantidad}}</b></p>
                             </div>
                             <div class="quantity">
-                            	<span>Cantidad:</span>
+                                <span>Cantidad:</span>
 								<div class="quantity-input">
 									<input type="text" name="product-quatity" wire:model="qty" data-max="120" pattern="[0-9]*" >
 
