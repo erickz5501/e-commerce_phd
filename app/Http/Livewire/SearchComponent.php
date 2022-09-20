@@ -26,7 +26,7 @@ class SearchComponent extends Component
     }
 
     public function store($producto_id, $producto_nombre, $producto_precio){
-        Cart::add($producto_id, $producto_nombre, 1, $producto_precio)->associate('App\Models\Producto');
+        Cart::instance('cart')->add($producto_id, $producto_nombre, 1, $producto_precio)->associate('App\Models\Producto');
         session()->flash('success_mesage', 'Producto añadido al carrito');
         return redirect()->route('producto.cart');
     }

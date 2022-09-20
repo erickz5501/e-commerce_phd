@@ -2,12 +2,25 @@
 
 namespace App\Http\Livewire\Admin;
 
+use App\Models\Order;
+use Carbon\Carbon;
 use Livewire\Component;
 
 class AdminDashboardComponent extends Component
 {
     public function render()
     {
-        return view('livewire.admin.admin-dashboard-component')->layout('layouts.base_admin');
+        $orders = Order::orderBy('created_at', 'DESC')->get()->take(10);
+        $totalSales = Order::where('status', 'delivered')->count();
+        $totalReveneu = Order::where('status', 'delivered')->sum('total');
+        $todaySales = Order::where('status', 'delivered')->whereDate('created_at', Carbon::today())->count();
+        $todayRevenue = Order::where('status', 'delivered')->whereDate('created_at', Carbon::today())->sum('total');
+        return view('livewire.admin.admin-dashboard-component', [
+            'orders'=>$orders,
+            'totalSales'=>$totalSales,
+            'totalReveneu'=>$totalReveneu,
+            'todaySales'=>$todaySales,
+            'todayRevenue'=>$todayRevenue
+            ])->layout('layouts.base_admin');
     }
 }
