@@ -113,14 +113,20 @@
                         <div class="form-group">
                             <label class="col-md-4 control-label" >Galeria</label>
                             <div class="col-md-4">
-                                <input type="file" class="input-file" wire:model="newimagenes" multiple/>
+                                <input type="file" class="input-file" wire:model="newimagenes" multiple />
                                 @if ($newimagenes)
-                                    @foreach ($newimagenes as $image)
-                                    <img src="{{$image->temporaryUrl()}}" width="120">
+                                    @foreach ($newimagenes as $newimagen)
+                                    @if ($newimagen)
+                                        <img src="{{$newimagen->temporaryUrl()}}" width="120">
+                                    @endif
                                     @endforeach
+                                    @else
+                                        @foreach ($imagenes as $imagen )
+                                            @if ($imagen)
+                                                <img src="{{asset('assets/images/products')}}/{{$imagen}}" width="120" />
+                                            @endif
+                                        @endforeach
                                 @endif
-                                @error('newimagenes') <p class="text-danger">{{$message}}</p>@enderror
-
                             </div>
                         </div>
                         <div class="form-group">

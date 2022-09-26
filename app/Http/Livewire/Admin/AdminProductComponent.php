@@ -17,15 +17,22 @@ class AdminProductComponent extends Component
         'deleteRow'=>'deleteProduct'
     ];
 
-    public function deleteProduct($id){
+    public function deleteProduct($id)
+    {
         $product = Producto::find($id);
-        if ($product->imagen) {
+        if ($product->imagen)
+        {
             unlink('assets/images/products/'.'/'.$product->imagen);
         }
-        if ($product->imagenes) {
+        if ($product->imagenes)
+        {
             $images = explode(",",$product->imagenes);
-            foreach($images as $image){
-                unlink('assets/images/products/'.'/'.$image);
+            foreach($images as $image)
+            {
+                if ($image)
+                {
+                    unlink('assets/images/products/'.'/'.$image);
+                }
             }
         }
         $product->delete();

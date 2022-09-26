@@ -25,8 +25,10 @@ class AdminEditProductComponent extends Component
     public $imagen;
     public $categoria_id;
     public $newimagen;
-    public $newimagenes;
     public $product_id;
+
+    public $imagenes;
+    public $newimagenes;
 
     public function mount($product_slug)
     {
@@ -44,6 +46,7 @@ class AdminEditProductComponent extends Component
         $this->imagen = $product->imagen;
         $this->categoria_id = $product->categoria_id;
         $this->newimagen = $product->newimagen;
+        $this->imagenes = explode(",",$product->imagenes);
         $this->product_id = $product->id;
     }
 
@@ -64,9 +67,13 @@ class AdminEditProductComponent extends Component
         'SKU'=>'required',
         'stock_estado'=>'required',
         'cantidad'=>'required|numeric',
-        'newimagen'=>'required|mimes:jpeg,png',
         'categoria_id'=>'required'
     ]);
+    if ($this->newimagen) {
+        $this->validateOnly($fields,[
+        'newimagen'=>'required|mimes:jpeg,png',
+        ]);
+    }
 
 }
 
@@ -74,7 +81,7 @@ class AdminEditProductComponent extends Component
     {
         $this->validate([
             'nombre'=>'required',
-            'slug'=>'required|unique:productos',
+            'slug'=>'required',
             'short_descripcion'=>'required',
             'descripcion'=>'required',
             'precio_venta'=>'required|numeric',
@@ -82,9 +89,13 @@ class AdminEditProductComponent extends Component
             'SKU'=>'required',
             'stock_estado'=>'required',
             'cantidad'=>'required|numeric',
-            'newimagen'=>'required|mimes:jpeg,png',
             'categoria_id'=>'required'
         ]);
+        if ($this->newimagen) {
+            $this->validate([
+            'newimagen'=>'required|mimes:jpeg,png',
+            ]);
+        }
 
         $product = Producto::find($this->product_id);
         $product->nombre = $this->nombre;
@@ -97,22 +108,32 @@ class AdminEditProductComponent extends Component
         $product->SKU = $this->SKU;
         $product->stock_estado = $this->stock_estado;
         $product->cantidad = $this->cantidad;
-        if ($this->newimagen) {
+        if ($this->newimagen)
+        {
+            unlink('assets/images/products/'.'/'.$product->imagen);
             $imageName = Carbon::now()->timestamp. '.' . $this->newimagen->extension();
             $this->newimagen->storeAs('products',$imageName);
             $product->imagen = $imageName;
         }
-        if ($this->newimagenes) {
-            if ($this->newimagenes)
+        if ($this->newimagenes)
+        {
+            if ($product->imagenes)
             {
-                $imagesname = '';
-                foreach ($this->newimagenes as $key => $image) {
-                    $imgName = Carbon::now()->timestamp. $key. '.' . $image->extension();
-                    $image->storeAs('products',$imgName);
-                    $imagesname= $imagesname . ',' . $imgName;
+                $imagenes = explode(",",$product->imagenes);
+                foreach($imagenes as $image)
+                {
+                    if ($image) {
+                        unlink('assets/images/products/'.'/'.$image);
+                    }
                 }
-                $product->imagenes = $imagesname;
             }
+            $imagesname ='';
+            foreach ($this->newimagenes as $key => $image) {
+                $imgName = Carbon::now()->timestamp. $key. '.' . $image->extension();
+                $image->storeAs('products',$imgName);
+                $imagesname= $imagesname . ',' . $imgName;
+            }
+            $product->imagenes = $imagesname;
         }
         $product->categoria_id = $this->categoria_id;
         $product->save();
